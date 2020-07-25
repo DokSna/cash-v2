@@ -15,44 +15,23 @@ require_once ('connect.php');
 $login = $_POST['login'];
 $password = md5($_POST['password']);
 
-// $check_user = mysqli_query($connect, "SELECT * FROM `users` WHERE `login` = '$login' AND `password` = '$password'");
-// if (mysqli_num_rows($check_user) > 0) {
+$query=$connect->query("SELECT COUNT(*) as count FROM users");
+$query->setFetchMode(PDO::FETCH_ASSOC);
+$row=$query->fetch();
+$members=$row['count']; //смотрим количество строк в таблице users
 
-//     $user = mysqli_fetch_assoc($check_user);
+echo $members;
 
-//     $_SESSION['user'] = [
-//         "id" => $user['id_user'],
-//         "full_name" => $user['full_name'],
-//         // "avatar" => $user['avatar'],
-//         // "email" => $user['email']
-//     ];
-
-//     header('Location: ../profile.php');
-// } else {
-//     $_SESSION['message'] = 'Не верный логин или пароль';
-//     header('Location: ../index.php');
-// }
-
-// PDO
-$check_user = $pdo->query('SELECT * FROM "users" WHERE "login" == $login');
-
-if (mysqli_num_rows($check_user) > 0) {
-
-  $user = mysqli_fetch_assoc($check_user);
-
-  $_SESSION['user'] = [
-    "id" => $user['id_user'],
-    "full_name" => $user['full_name'],
-    // "avatar" => $user['avatar'],
-    // "email" => $user['email']
-  ];
-}
 
 ?>
+
+
 
 <pre>
     <?php
     print_r($check_user);
     print_r($user);
+    echo '---==----<br>';
+    print_r($members);
     ?>
 </pre>
