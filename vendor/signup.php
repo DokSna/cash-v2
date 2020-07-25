@@ -18,8 +18,8 @@ else {
 
   if ($password === $password_confirm) {
 
-    // $password = md5($password);
-    $password = $password;
+    $password = md5($password);
+    // $password = $password;
 
     # 1.Создаём запись строки с новым пользователем в таблицу users
     $sql = 'INSERT INTO `users` (`id_user`, `full_name`, `login`, `password`) VALUES (:id, :full_name, :login, :password)';

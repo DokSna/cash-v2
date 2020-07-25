@@ -13,8 +13,8 @@ else {
   require_once('connect.php');
 
   $login = $_POST['login'];
-  // $password = md5($_POST['password']);
-  $password = $_POST['password'];
+  $password = md5($_POST['password']);
+  // $password = $_POST['password'];
 
   // $query=$connect->query("SELECT COUNT(*) as count FROM users");
   // $query->setFetchMode(PDO::FETCH_ASSOC);

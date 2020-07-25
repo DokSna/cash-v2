@@ -1,9 +1,9 @@
 <?php
 $driver   = 'mysql';
 $host     = "localhost";
-$db_name  = "db_cash_v2";
-$db_user  = "root";
-$db_pass  = "";
+$db_name  = "valikov_cash_v2";
+$db_user  = "valikov_cash_v2";
+$db_pass  = "44Zb%F";
 $charset  = 'utf8';
 $options  = [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION];
 
