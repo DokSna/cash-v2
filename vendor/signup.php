@@ -1,39 +1,48 @@
 <?php
-
 session_start();
 
 ##  Проверяем, заполнено ли поле 'login'
 if (empty($_POST['login'])) {
   // exit('Не заполнено поле "Логин"');
-  header('Location: ../index.php');
+  header('Location: ../register.php');
   $_SESSION['message'] = 'Не заполнено поле "Логин"';
 }
 ##
+else {
+  require_once 'connect.php';
 
-require_once 'connect.php';
+  $full_name = $_POST['full_name'];
+  $login = $_POST['login'];
+  $password = $_POST['password'];
+  $password_confirm = $_POST['password_confirm'];
 
-$full_name = $_POST['full_name'];
-$login = $_POST['login'];
-// $email = $_POST['email'];
-$password = $_POST['password'];
-$password_confirm = $_POST['password_confirm'];
+  if ($password === $password_confirm) {
 
-if ($password === $password_confirm) {
+    // $password = md5($password);
+    $password = $password;
 
-  // $path = 'uploads/' . time() . $_FILES['avatar']['name'];
-  // if (!move_uploaded_file($_FILES['avatar']['tmp_name'], '../' . $path)) {
-  //     $_SESSION['message'] = 'Ошибка при загрузке сообщения';
-  //     header('Location: ../register.php');
-  // }
+    # 1.Создаём запись строки с новым пользователем в таблицу users
+    $sql = 'INSERT INTO `users` (`id_user`, `full_name`, `login`, `password`) VALUES (:id, :full_name, :login, :password)';
 
-  $password = md5($password);
+    # 2.Создаём массив с данными
+    $data = array(
+      'id' => NULL,
+      'full_name' => $full_name,
+      'login' => $login,
+      'password' => $password
+    );
 
-  mysqli_query($connect, "INSERT INTO `users` (`id_user`, `full_name`, `login`, `password`)
-                                             VALUES (NULL, '$full_name', '$login', '$password')");
+    # 3. Подгатавливаем текст запроса
+    $adduser = $connect->prepare($sql);
+    # 4.Выполняем запрос
+    $adduser->execute($data);
 
-  $_SESSION['message'] = 'Регистрация прошла успешно!';
-  header('Location: ../index.php');
-} else {
-  $_SESSION['message'] = 'Пароли не совпадают';
-  header('Location: ../register.php');
+    // mysqli_query($connect, "INSERT INTO `users` (`id_user`, `full_name`, `login`, `password`) VALUES (NULL, '$full_name', '$login', '$password')");
+
+    $_SESSION['message'] = 'Регистрация прошла успешно!';
+    header('Location: ../index.php');
+  } else {
+    $_SESSION['message'] = 'Пароли не совпадают';
+    header('Location: ../register.php');
+  }
 }

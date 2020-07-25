@@ -18,7 +18,7 @@ if ($_SESSION['user']) {
 
   <!-- Форма регистрации -->
 
-  <form action="vendor/signup.php" method="post" enctype="multipart/form-data">
+  <form action="vendor/signup.php" method="post">
     <label>ФИО</label>
     <input type="text" name="full_name" placeholder="Введите свое полное имя">
     <label>Логин</label>
@@ -27,7 +27,7 @@ if ($_SESSION['user']) {
     <input type="password" name="password" placeholder="Введите пароль">
     <label>Подтверждение пароля</label>
     <input type="password" name="password_confirm" placeholder="Подтвердите пароль">
-    <button type="submit">Войти</button>
+    <button type="submit">Зарегистрироваться</button>
     <p>
       <a href="/">авторизироваться</a>
     </p>
