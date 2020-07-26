@@ -16,4 +16,9 @@ if (!$_SESSION['user']) {
     echo '<label><input type="radio" name="id_shop" value="' . $row['id_shop'] . '">' . $row['name_shop'] . ' - адрес: ' . $row['address_shop'] . '</label><br>';
   }
   echo '<br>';
+  if ($_SESSION['message_shop']) {
+    echo '<p class="msg_shop"> ' . $_SESSION['message_shop'] . ' </p>';
+    unset($_SESSION['message_shop']);
+  }
+
 }

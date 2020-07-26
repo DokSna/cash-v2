@@ -68,7 +68,6 @@ if (!$_SESSION['user']) {
     <br><br>
     <label onmouseover="calc()"><input type="number" value="0" min="0" id="copeyka1" name="copeyka1" onblur="calc()"> 1 копейка</label>
     <p>Сумма монет: <span id="monetSumm">0</span></p>
-    <br>
     <!-- <p>Общая Сумма: <span name="sum" id="summa">0</span></p> -->
     <p>Общая Сумма</p>
     <input type="number" readonly value="0" name="sum" id="summa">
@@ -80,7 +79,6 @@ if (!$_SESSION['user']) {
       echo '<p class="msg"> ' . $_SESSION['message'] . ' </p>';
       unset($_SESSION['message']);
     }
-    // unset($_SESSION['message']);
     ?>
   </form>
   <script src="calc.js"></script>

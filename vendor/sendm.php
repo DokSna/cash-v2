@@ -2,6 +2,10 @@
 session_start();
 if (!$_SESSION['user']) {
   header('Location: /');
+}
+elseif (empty($_POST['id_shop'])) {
+    header('Location: ../profile.php');
+    $_SESSION['message_shop'] = 'Выберите магазин.';
 } else {
   #Создадим переменные для sql запроса
   $id_user = $_SESSION['user']['id'];  //id пользователя, который сделал запись
