@@ -63,7 +63,8 @@ else {
     $_SESSION['user'] = [
       "id" => $user['id_user'],
       "full_name" => $user['full_name'],
-      "login" => $user['login']
+      "login" => $user['login'],
+      "admin" => $user['admin']
     ];
 
     header('Location: ../profile.php');
