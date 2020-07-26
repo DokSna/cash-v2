@@ -25,23 +25,23 @@ if (!$_SESSION['user']) {
   $copeyka5  = $_POST['copeyka5'];
   $copeyka1  = $_POST['copeyka1'];
 
-  $summa = 16;
-  // $kup5000    +
-  // $kup2000    +
-  // $kup1000    +
-  // $kup500     +
-  // $kup200     +
-  // $kup100     +
-  // $kup50      +
-  // $kup10      +
-  // $moneta10   +
-  // $moneta5    +
-  // $moneta2    +
-  // $moneta1    +
-  // $copeyka50  +
-  // $copeyka10  +
-  // $copeyka5   +
-  // $copeyka1;
+  $summa =
+    $kup5000    * 5000    +
+    $kup2000    * 2000    +
+    $kup1000    * 1000    +
+    $kup500     *  500    +
+    $kup200     *  200    +
+    $kup100     *  100    +
+    $kup50      *   50    +
+    $kup10      *   10    +
+    $moneta10   *   10    +
+    $moneta5    *    5    +
+    $moneta2    *    2    +
+    $moneta1    *    1    +
+    $copeyka50  *    0.5  +
+    $copeyka10  *    0.1  +
+    $copeyka5   *    0.05 +
+    $copeyka1   *    0.01;
 
   # соединяемся с базой данных
   require_once('connect.php');
@@ -53,20 +53,8 @@ if (!$_SESSION['user']) {
     :kup2000, :kup1000, :kup500, :kup200, :kup100, :kup50, :kup10,
     :moneta10, :moneta5, :moneta2, :moneta1, :copeyka50, :copeyka10, :copeyka5, :copeyka1)";
 
-    // # 1.Создаём текст sql запроса, что бы добавить новую строку в таблицу cash
-    // $sql = "INSERT INTO cash VALUES (NULL, NOW(), :id_user, :summa
-    //   , :kup5000,
-    //   :kup2000, :kup1000, :kup500, :kup200, :kup100, :kup50, :kup10,
-    //   :moneta10, :moneta5, :moneta2, :moneta1, :copeyka50, :copeyka10, :copeyka5, :copeyka1
-    //   )";
-
-
     //   # 2.Создаём массив с данными
     $data = array(
-      // 'id' => NULL,
-      // 'full_name' => $full_name,
-      // 'login' => $login,
-      // 'password' => $password
       'id_user'   => $id_user,
       'summa'     => $summa,
       'kup5000'   => $kup5000,
@@ -92,40 +80,14 @@ if (!$_SESSION['user']) {
     # 4.Выполняем запрос
     $writemoney->execute($data);
 
-    //   ################ старая версия
-    // $query = "INSERT INTO cash2 VALUES (NULL, NOW(), :sum, :kup5000,
-    //      :kup2000, :kup1000, :kup500, :kup200, :kup100, :kup50, :kup10,
-    //      :moneta10, :moneta5, :moneta2, :moneta1, :copeyka50, :copeyka10, :copeyka5, :copeyka1)";
-    // $msg = $pdo->prepare($query);
-    // $msg->execute([
-    //   'sum' => $_POST['sum'],
-    //   'kup5000' => $_POST['kup5000'],
-    //   'kup2000' => $_POST['kup2000'],
-    //   'kup1000' => $_POST['kup1000'],
-    //   'kup500' => $_POST['kup500'],
-    //   'kup200' => $_POST['kup200'],
-    //   'kup100' => $_POST['kup100'],
-    //   'kup50' => $_POST['kup50'],
-    //   'kup10' => $_POST['kup10'],
-    //   'moneta10' => $_POST['moneta10'],
-    //   'moneta5' => $_POST['moneta5'],
-    //   'moneta2' => $_POST['moneta2'],
-    //   'moneta1' => $_POST['moneta1'],
-    //   'copeyka50' => $_POST['copeyka50'],
-    //   'copeyka10' => $_POST['copeyka10'],
-    //   'copeyka5' => $_POST['copeyka5'],
-    //   'copeyka1' => $_POST['copeyka1']
-    // ]);
+    $_SESSION['message'] = 'Запись сделана.';
 
+    header('Location: ../profile.php');
   } catch (PDOException $e) {
     echo "Connection failed: " . $e->getMessage();
   }
-  // } catch (PDOException $e) {
-  //   echo "Error connecting to database";
-  //   echo "ошибка";
-  // }
-
 }
+
 ?>
 <pre>
     <?php

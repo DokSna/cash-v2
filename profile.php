@@ -65,6 +65,13 @@ if (!$_SESSION['user']) {
         <br><br>
 
         <input type="submit" value="Отправить" onfocus="calc()" onmouseover="calc()">
+        <?php
+        if ($_SESSION['message']) {
+            echo '<p class="msg"> ' . $_SESSION['message'] . ' </p>';
+            unset($_SESSION['message']);
+        }
+        // unset($_SESSION['message']);
+        ?>
     </form>
     <script src="calc.js"></script>
     <!-- <form>
