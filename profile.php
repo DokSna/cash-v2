@@ -21,10 +21,16 @@ if (!$_SESSION['user']) {
 
 <body>
   <!-- Профиль -->
+  <!-- В ы х о д -->
+  <p><a href="vendor/logout.php" class="logout">Выход</a></p>
   <?php
   echo '<p>Пользователь: ' . $_SESSION['user']['full_name'] . '.</p>';
+  # Если admin - даём ссылку
+  if ($_SESSION['user']['admin'] == true) {
+    echo '<p><a href="adminlk.php">admin page</a></p>';
+  }
+
   ?>
-  <!-- Административная часть -->
 
   <!-- наличность -->
   <form action="vendor/sendm.php" method="post">
@@ -82,7 +88,6 @@ if (!$_SESSION['user']) {
     ?>
   </form>
   <script src="calc.js"></script>
-  <a href="vendor/logout.php" class="logout">Выход</a>
 </body>
 
 </html>
