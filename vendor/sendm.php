@@ -8,6 +8,7 @@ if (!$_SESSION['user']) {
 
   # Переместим значения из массива $_POST в переменные, и посчитаем сумму
   # можно было бы взять сумму посчитаную JavaScript, но думаю такой метод будет безопаснее для значения суммы.
+  $id_shop   = $_POST['id_shop'];
   $kup5000   = $_POST['kup5000'];
   $kup2000   = $_POST['kup2000'];
   $kup1000   = $_POST['kup1000'];
@@ -49,12 +50,13 @@ if (!$_SESSION['user']) {
   try {
 
     # 1.Создаём текст sql запроса, что бы добавить новую строку в таблицу cash
-    $sql = "INSERT INTO cash VALUES (NULL, NOW(), :id_user, :summa, :kup5000,
+    $sql = "INSERT INTO cash VALUES (NULL, NOW(), :id_shop, :id_user, :summa, :kup5000,
     :kup2000, :kup1000, :kup500, :kup200, :kup100, :kup50, :kup10,
     :moneta10, :moneta5, :moneta2, :moneta1, :copeyka50, :copeyka10, :copeyka5, :copeyka1)";
 
     //   # 2.Создаём массив с данными
     $data = array(
+      'id_shop'   => $id_shop,
       'id_user'   => $id_user,
       'summa'     => $summa,
       'kup5000'   => $kup5000,
