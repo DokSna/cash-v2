@@ -61,7 +61,7 @@ else {
     $user = $row;
 
     $_SESSION['user'] = [
-      "id" => $user['id_user '],
+      "id" => $user['id_user'],
       "full_name" => $user['full_name'],
       "login" => $user['login']
     ];
