@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Таблица</title>
+  <style>
+    table {
+      width: 100%;
+      /* Ширина таблицы */
+      border-collapse: collapse;
+      /* Убираем двойные линии */
+    }
+
+    thead {
+      background: #f5e8d0;
+      /* Цвет фона заголовка */
+    }
+
+    td,
+    th {
+      padding: 5px;
+      /* Поля в ячейках */
+      border: 1px solid #333;
+      /* Параметры рамки */
+    }
+
+    tbody tr:nth-child(even) {
+      background: #f0f0f0;
+      /* Зебра */
+    }
+
+  </style>
+</head>
+
+<body>
+  <!-- <th rowspan="2">Интервалы размеров, мм</th>
+  <th colspan="4">Допуск IT, мкм, для квалитетов</th> -->
+
+  <table>
+    <thead>
+      <tr><th colspan="3">Магазины</th></tr>
+      <tr>
+        <th>id</th>
+        <th>Название</th>
+        <th>адрес</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!--  -->
+      <tr>
+        <td>1</td>
+        <td><input type="text" value="Павлино"></td>
+        <td>Павлино 27</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td><input type="text" value="Савино"></td>
+        <td>Савино 6</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td><input type="text" value="Юниор"></td>
+        <td>Советская 15</td>
+      </tr>
+    </tbody>
+  </table>
+  <form action="write_shop.php" method="post">
+    <label>Введите id магазина <input type="number"></label>
+  </form>
+</body>
+
+</html>

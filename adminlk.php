@@ -20,6 +20,7 @@ if ($_SESSION['user']['admin'] != true) {
   ?>
 
   <link rel="stylesheet" href="style/profile.css">
+  <link rel="stylesheet" href="style/adminlk.css">
 </head>
 
 <body>
@@ -31,6 +32,8 @@ if ($_SESSION['user']['admin'] != true) {
   echo '<a href="profile.php">user page</a>';
 
   # Магазины
+  echo '<br>';
+  include ('./vendor/shops_form.php');
   // $sql_shops = $connect->query('SELECT * FROM shops');
 
   // # устанавливаем режим выборки
