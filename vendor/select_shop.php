@@ -14,6 +14,7 @@ if (!$_SESSION['user']) {
 
   while ($row = $STH->fetch()) {
     echo '<label><input type="radio" name="id_shop" value="' . $row['id_shop'] . '">' . $row['name_shop'] . ' - адрес: ' . $row['address_shop'] . '</label><br>';
+    # onclick="choice()" - снимает блокировку с кнопки отправки формы, когда выбран магазин
   }
   echo '<br>';
   if ($_SESSION['message_shop']) {

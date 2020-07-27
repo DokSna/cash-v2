@@ -35,3 +35,9 @@ function calc() {
 
   // summ.innerHTML = Number(summaKup + summaMonet).toFixed(2);
 }
+
+function choice() {
+  // $(this).parent().find(':checked').length
+  let show = document.getElementById('submitgo');
+  show.disabled = false;
+}

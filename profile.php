@@ -79,7 +79,8 @@ if (!$_SESSION['user']) {
     <input type="number" readonly value="0" name="sum" id="summa">
     <br><br>
 
-    <input type="submit" value="Отправить" onfocus="calc()" onmouseover="calc()">
+    <input id="submitgo" type="submit" value="Отправить" onfocus="calc()" onmouseover="calc()" >  
+    <!-- disabled -->
     <?php
     if ($_SESSION['message']) {
       echo '<p class="msg"> ' . $_SESSION['message'] . ' </p>';
