@@ -36,8 +36,22 @@ function calc() {
   // summ.innerHTML = Number(summaKup + summaMonet).toFixed(2);
 }
 
-function choice() {
-  // $(this).parent().find(':checked').length
-  let show = document.getElementById('submitgo');
-  show.disabled = false;
+// разблокирует кнопку отправить форму наличка, когда выбран магазин
+// function choice() {
+//   // $(this).parent().find(':checked').length
+//   let show = document.getElementById('submitgo');
+//   show.disabled = false;
+// }
+
+function write_form(line) {
+  let address_shop;
+  let name_shop;
+  let roditel;
+  roditel = parentElement;
+  console.log(roditel);
+  // address_shop  = line.previousSibling;
+  // name_shop     = address_shop.previousSibling;
+  // console.log(name_shop);
+  // console.log(address_shop);
+  console.log(456);
 }

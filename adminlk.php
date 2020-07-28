@@ -47,7 +47,7 @@ if ($_SESSION['user']['admin'] != true) {
 
   ?>
   <!-- Административная часть -->
-
+<script src="calc.js"></script>
 </body>
 
 </html>

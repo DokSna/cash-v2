@@ -39,7 +39,9 @@
 
   <table>
     <thead>
-      <tr><th colspan="3">Магазины</th></tr>
+      <tr>
+        <th colspan="3">Магазины</th>
+      </tr>
       <tr>
         <th>id</th>
         <th>Название</th>
@@ -68,6 +70,39 @@
   <form action="write_shop.php" method="post">
     <label>Введите id магазина <input type="number"></label>
   </form>
+
+  <br><br>
+  <div class="table_shop">
+    <form action="" method="post">
+      <table>
+        <thead>
+          <tr>
+            <th colspan="4">Магазины</th>
+          </tr>
+          <tr>
+            <th>id</th>
+            <th>Название</th>
+            <th>адрес</th>
+            <th>изменить строку</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>1</th>
+            <td>Павлино</td>
+            <td>улица Павлино 25</td>
+            <th><input type="button" value="изменить"></th>
+          </tr>
+          <tr>
+            <th>2</th>
+            <td>Савино</td>
+            <td>улица Савино 27</td>
+            <th><input type="button" value="изменить"></th>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+  </div>
 </body>
 
 </html>
