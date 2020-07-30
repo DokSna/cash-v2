@@ -2,10 +2,10 @@
 session_start();
 
 ##  Проверяем, заполнено ли поле 'login'
-if (empty($_POST['login'])) {
+if (empty($_POST['full_name']) || empty($_POST['login']) || empty($_POST['password'])) {
   // exit('Не заполнено поле "Логин"');
   header('Location: ../register.php');
-  $_SESSION['message'] = 'Не заполнено поле "Логин"';
+  $_SESSION['message'] = 'Заполните все поля.';
 }
 ##
 else {
