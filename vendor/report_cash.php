@@ -8,12 +8,15 @@ if ($_SESSION['user']['admin'] != true) {
 } else {
   require_once('connect.php');
 
+  ### Кассовый отчет ###
   # поскольку это обычный запрос без placeholder’ов,
   # можно сразу использовать метод query()  
-  $STH = $connect->query('SELECT * FROM shops');
+  $sql_shop = $connect->query('SELECT * FROM cash');  #читаем таблицу shop
+  $sql_cash = $connect->query('SELECT * FROM cash');  #читаем таблицу cash
 
   # устанавливаем режим выборки
-  $STH->setFetchMode(PDO::FETCH_ASSOC);
+  $sql_shop->setFetchMode(PDO::FETCH_ASSOC);
+  $sql_cash->setFetchMode(PDO::FETCH_ASSOC);
   echo '<br><div class="table_shop">
         <table>
           <thead>
@@ -28,10 +31,17 @@ if ($_SESSION['user']['admin'] != true) {
           </thead>
           <tbody>
   ';
-  while ($row = $STH->fetch()) {
+  while ($row = $sql_shop->fetch()) {
     echo '<tr><th>' . $row['id_shop'] . '</th><td id="nameShopid_' . $row['id_shop'] . '">' . $row['name_shop'] . '</td><td id="adresShopid_' . $row['id_shop'] . '">' . $row['address_shop'] . '</td>
     <th>' . $row['phone'] . '</th><td>' . $row['email'] . '</td></tr>';
     # onclick="choice()" - снимает блокировку с кнопки отправки формы, когда выбран магазин
+
+    # для каждой строки магазина найдём записи в таблице cash
+    while ($row_cash = $sql_cash->fetch()) {
+      if ($row['id_shop'] == $row_cash['id_shop']) {
+        
+      }
+    }
   }
   echo '</tbody></table></div>';
   if ($_SESSION['message_shop']) {

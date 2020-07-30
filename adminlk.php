@@ -34,16 +34,10 @@ if ($_SESSION['user']['admin'] != true) {
   # Магазины
   echo '<br>';
   include ('./vendor/shops_form.php');
-  // $sql_shops = $connect->query('SELECT * FROM shops');
 
-  // # устанавливаем режим выборки
-  // $sql_shops->setFetchMode(PDO::FETCH_ASSOC);
-
-  // while ($row = $sql_shops->fetch()) {
-  //   echo '<p>id = ' . $row['id_shop'] . '. Название: ' . $row['name_shop'] . ' - адрес: ' . $row['address_shop'] . '.</p>';
-  //   // echo '<br>';
-  // }
-  // echo '<br>';
+  # Записи в таблице Cash
+  echo '<br>';
+  include ('./vendor/report_cash.php');
 
   ?>
   <!-- Административная часть -->
