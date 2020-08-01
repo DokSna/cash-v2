@@ -11,41 +11,61 @@ if ($_SESSION['user']['admin'] != true) {
   ### Кассовый отчет ###
   # поскольку это обычный запрос без placeholder’ов,
   # можно сразу использовать метод query()  
-  $sql_shop = $connect->query('SELECT * FROM cash');  #читаем таблицу shop
-  $sql_cash = $connect->query('SELECT * FROM cash');  #читаем таблицу cash
+  $sql_cash = $connect->query('SELECT cash.*, users.full_name FROM cash LEFT JOIN users USING(id_user)  order by cash.time');  #читаем таблицу cash
 
   # устанавливаем режим выборки
-  $sql_shop->setFetchMode(PDO::FETCH_ASSOC);
   $sql_cash->setFetchMode(PDO::FETCH_ASSOC);
-  echo '<br><div class="table_shop">
-        <table>
-          <thead>
-            <tr><th colspan="5">Магазины</th></tr>
-            <tr>
-              <th>id</th>
-              <th>Название</th>
-              <th>адрес</th>
-              <th>телефон</th>
-              <th>e-mail</th>
-            </tr>
-          </thead>
-          <tbody>
-  ';
-  while ($row = $sql_shop->fetch()) {
-    echo '<tr><th>' . $row['id_shop'] . '</th><td id="nameShopid_' . $row['id_shop'] . '">' . $row['name_shop'] . '</td><td id="adresShopid_' . $row['id_shop'] . '">' . $row['address_shop'] . '</td>
-    <th>' . $row['phone'] . '</th><td>' . $row['email'] . '</td></tr>';
-    # onclick="choice()" - снимает блокировку с кнопки отправки формы, когда выбран магазин
 
-    # для каждой строки магазина найдём записи в таблице cash
-    while ($row_cash = $sql_cash->fetch()) {
-      if ($row['id_shop'] == $row_cash['id_shop']) {
-        
-      }
-    }
+  echo '<br>
+      <div class="table_shop">
+        <table>';
+  echo  '<thead>
+        <tr>
+          <th colspan=6>Название магазина</th>
+        </tr>
+        <tr>
+          <th>№</th>
+          <th>id</th>
+          <th>Время</th>
+          <th>магазин</th>
+          <th>Пользователь</th>
+          <th>Сумма</th>
+        </tr>
+      </thead>
+      <tbody>';
+  $i = 0;
+  while ($row_cash = $sql_cash->fetch()) {
+    // while ($row_cash = $sql_cash->fetch()) {
+    $i += 1;
+    // if ($row_shop['id_shop'] == $row_cash['id_shop']) {
+
+    echo '<tr>
+        <th>' . $i . '</th>
+        <th>' . $row_cash['record_id'] . '</th>
+        <th>' . $row_cash['time'] . '</th>
+        <td>' . $row_cash['id_shop'] . '</td>
+        <td>' . $row_cash['full_name'] . '</td>
+        <td>' . $row_cash['summa'] . '</td>
+        </tr>';
+    // }
+    // }
+    echo '</tbody>';
   }
-  echo '</tbody></table></div>';
+  echo '</table></div>';
   if ($_SESSION['message_shop']) {
     echo '<p class="msg_shop"> ' . $_SESSION['message_shop'] . ' </p>';
     unset($_SESSION['message_shop']);
   }
 }
+
+?>
+
+<!-- <pre> -->
+    <?php
+    // echo '-=-<br>';
+    // print_r($sql_cash);
+    // echo '-=-<br>';
+    // print_r($row_cash[0]);
+    // print_r($summa);
+    ?>
+<!-- </pre> -->

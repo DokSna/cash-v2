@@ -28,11 +28,13 @@ if ($_SESSION['user']['admin'] != true) {
           </thead>
           <tbody>
   ';
+  # выводим строки таблицы
   while ($row = $STH->fetch()) {
     echo '<tr><th>' . $row['id_shop'] . '</th><td id="nameShopid_' . $row['id_shop'] . '">' . $row['name_shop'] . '</td><td id="adresShopid_' . $row['id_shop'] . '">' . $row['address_shop'] . '</td>
     <th>' . $row['phone'] . '</th><td>' . $row['email'] . '</td></tr>';
     # onclick="choice()" - снимает блокировку с кнопки отправки формы, когда выбран магазин
   }
+  # пишем "хвост" таблицы
   echo '</tbody></table></div>';
   if ($_SESSION['message_shop']) {
     echo '<p class="msg_shop"> ' . $_SESSION['message_shop'] . ' </p>';
