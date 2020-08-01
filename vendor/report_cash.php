@@ -11,11 +11,18 @@ if ($_SESSION['user']['admin'] != true) {
   ### Кассовый отчет ###
   # поскольку это обычный запрос без placeholder’ов,
   # можно сразу использовать метод query()  
-  $sql_cash = $connect->query('SELECT cash.*, users.full_name FROM cash LEFT JOIN users USING(id_user)  order by cash.time');  #читаем таблицу cash
+  $sql_cash = $connect->query('SELECT cash.record_id, cash.time, cash.summa, 
+                                      users.full_name,
+                                      shops.name_shop
+                                       FROM cash 
+                                       LEFT JOIN users USING(id_user) 
+                                       LEFT JOIN shops USING(id_shop) 
+                                       order by cash.time, name_shop');  #читаем таблицу cash
 
   # устанавливаем режим выборки
   $sql_cash->setFetchMode(PDO::FETCH_ASSOC);
 
+  # выводим результат на страницу
   echo '<br>
       <div class="table_shop">
         <table>';
@@ -43,15 +50,15 @@ if ($_SESSION['user']['admin'] != true) {
         <th>' . $i . '</th>
         <th>' . $row_cash['record_id'] . '</th>
         <th>' . $row_cash['time'] . '</th>
-        <td>' . $row_cash['id_shop'] . '</td>
+        <td>' . $row_cash['name_shop'] . '</td>
         <td>' . $row_cash['full_name'] . '</td>
         <td>' . $row_cash['summa'] . '</td>
         </tr>';
     // }
     // }
-    echo '</tbody>';
+    // echo '';
   }
-  echo '</table></div>';
+  echo '</tbody></table></div>';
   if ($_SESSION['message_shop']) {
     echo '<p class="msg_shop"> ' . $_SESSION['message_shop'] . ' </p>';
     unset($_SESSION['message_shop']);
@@ -61,11 +68,11 @@ if ($_SESSION['user']['admin'] != true) {
 ?>
 
 <!-- <pre> -->
-    <?php
-    // echo '-=-<br>';
-    // print_r($sql_cash);
-    // echo '-=-<br>';
-    // print_r($row_cash[0]);
-    // print_r($summa);
-    ?>
+<?php
+// echo '-=-<br>';
+// print_r($sql_cash);
+// echo '-=-<br>';
+// print_r($row_cash[0]);
+// print_r($summa);
+?>
 <!-- </pre> -->
