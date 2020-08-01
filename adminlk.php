@@ -31,6 +31,10 @@ if ($_SESSION['user']['admin'] != true) {
 
   echo '<a href="profile.php">user page</a>';
 
+  # Сотрудники
+  echo '<br>';
+  include ('./vendor/users.php');
+
   # Магазины
   echo '<br>';
   include ('./vendor/shops_form.php');

@@ -27,3 +27,13 @@
   width: 100%;
   height: 100%;
 }
+
+.poz_center {
+  /* display: flex;
+  justify-content: center; */
+  text-align: center;
+}
+
+.poz_r {
+  text-align: right;
+}
