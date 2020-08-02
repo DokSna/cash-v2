@@ -33,19 +33,19 @@ if ($_SESSION['user']['admin'] != true) {
 
   # Сотрудники
   echo '<br>';
-  include ('./vendor/users.php');
+  include('./vendor/users.php');
 
   # Магазины
   echo '<br>';
-  include ('./vendor/shops_form.php');
+  include('./vendor/shops_form.php');
 
   # Записи в таблице Cash
   echo '<br>';
-  include ('./vendor/report_cash.php');
+  include('./vendor/report_cash.php');
 
   ?>
   <!-- Административная часть -->
-<script src="calc.js"></script>
+  <script src="calc.js"></script>
 </body>
 
 </html>

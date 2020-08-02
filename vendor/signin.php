@@ -64,7 +64,9 @@ else {
       "id" => $user['id_user'],
       "full_name" => $user['full_name'],
       "login" => $user['login'],
-      "admin" => $user['admin']
+      "admin" => $user['admin'],
+      "report_date_start" => $user['report_date_start'],
+      "report_date_end" => $user['report_date_end']
     ];
 
     header('Location: ../profile.php');

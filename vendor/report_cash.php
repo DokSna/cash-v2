@@ -8,6 +8,37 @@ if ($_SESSION['user']['admin'] != true) {
 } else {
   require_once('connect.php');
 
+  # формирование отчёта на конкретную дату/даты (date("Y-m-d H:i:s", $now_date))
+  ## преобразование даты из 2020-07-27 22:28:16 в 2020-07-27 => date("Y-m-d", strtotime($row_cash['time']))
+  # дата отчета ***||| 
+
+  $_SESSION['report_date_start'] = $_POST['report_date_start'];
+  $_SESSION['report_date_end'] = $_POST['report_date_end'];
+
+  echo '<h3>Укажите с какой по какую дату вывести записи.</h3>
+  <form action="" method="post">
+    <div class="date">
+      <label for="report_date_start">дата, "начиная с" (включительно) </label>
+      <input type="date" value="' . $_SESSION['report_date_start'];
+  echo '" name="report_date_start" id="report_date_start">
+
+      <label for="report_date_end">, "по дату" (включительно) </label>
+      <input type="date" value="' . $_SESSION['report_date_end'];
+  echo '" name="report_date_end" id="report_date_end">
+
+      <input type="submit" value="обновить">
+    </div>
+  </form>
+  <br>
+  ';
+
+  // $_SESSION['report_date'] = $_POST['report_date'];
+  $sql_date_start = date("Y-m-d H:i:s", strtotime($_SESSION['report_date_start']));
+  $sql_date_end = date("Y-m-d H:i:s", strtotime($_SESSION['report_date_end']) + (24 * 3600));
+
+  echo 'Записи с ' . $sql_date_start;
+  echo ' до ' . $sql_date_end;
+  echo '<br>';
   ### Кассовый отчет ###
   # поскольку это обычный запрос без placeholder’ов,
   # можно сразу использовать метод query() 
@@ -28,9 +59,11 @@ if ($_SESSION['user']['admin'] != true) {
                                   LEFT JOIN users USING(id_user) 
                                   LEFT JOIN shops USING(id_shop)
                                   WHERE  shops.id_shop = '$row_shop[id_shop]'
+                                  AND cash.time >= '$sql_date_start'
+                                  AND cash.time < '$sql_date_end'
                                   ORDER BY cash.time");  #читаем таблицу cash
 
-    # устанавливаем режим выборки
+    # устанавливаем режим выборки    
     $sql_cash->setFetchMode(PDO::FETCH_ASSOC);
 
     # рисуем таблицу
@@ -79,10 +112,11 @@ if ($_SESSION['user']['admin'] != true) {
 
 <!-- <pre> -->
 <?php
-// echo '-=-<br>';
-// print_r($sql_cash);
-// echo '-=-<br>';
-// print_r($row_cash[0]);
-// print_r($summa);
+// echo $now_date . 'kl';
+// echo '$row_cash["time"]<br>';
+// print_r($row_cash['time']);
+// echo '$_POST["report_date"]<br>';
+// print_r($_POST['report_date']);
+// print_r($report_date);
 ?>
 <!-- </pre> -->
