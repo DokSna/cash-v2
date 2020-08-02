@@ -11,7 +11,12 @@ if ($_SESSION['user']['admin'] != true) {
   # формирование отчёта на конкретную дату/даты (date("Y-m-d H:i:s", $now_date))
   ## преобразование даты из 2020-07-27 22:28:16 в 2020-07-27 => date("Y-m-d", strtotime($row_cash['time']))
   # дата отчета ***||| 
-
+if (empty($_POST['report_date_end'])) {
+  $_POST['report_date_end'] = date('Y-m-d');
+}
+if (empty($_POST['report_date_start'])) {
+  $_POST['report_date_start'] = date('Y-m-d', strtotime(" - 3 days"));
+}
   $_SESSION['report_date_start'] = $_POST['report_date_start'];
   $_SESSION['report_date_end'] = $_POST['report_date_end'];
 
