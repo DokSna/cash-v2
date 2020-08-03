@@ -17,6 +17,7 @@ if (!$_SESSION['user']) {
   ?>
 
   <link rel="stylesheet" href="style/profile.css">
+
 </head>
 
 <body>
