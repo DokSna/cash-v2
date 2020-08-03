@@ -3,24 +3,24 @@ session_start();
 if (!$_SESSION['user']) {
   header('Location: /');
 } else {
-  require_once('connect.php');
+  // require_once('connect.php');
 
-  # поскольку это обычный запрос без placeholder’ов,
-  # можно сразу использовать метод query()  
-  $STH = $connect->query('SELECT * FROM shops');
+  // # поскольку это обычный запрос без placeholder’ов,
+  // # можно сразу использовать метод query()  
+  // $STH = $connect->query('SELECT * FROM shops');
 
-  # устанавливаем режим выборки
-  $STH->setFetchMode(PDO::FETCH_ASSOC);
+  // # устанавливаем режим выборки
+  // $STH->setFetchMode(PDO::FETCH_ASSOC);
 
-  while ($row = $STH->fetch()) {
-    echo '<label><input type="radio" name="id_shop" value="' . $row['id_shop'] . '">' . $row['name_shop'] . ' - адрес: ' . $row['address_shop'] . '</label><br>';
-    # onclick="choice()" - снимает блокировку с кнопки отправки формы, когда выбран магазин
-  }
-  echo '<br>';
-  if ($_SESSION['message_shop']) {
-    echo '<p class="msg_shop"> ' . $_SESSION['message_shop'] . ' </p>';
-    unset($_SESSION['message_shop']);
-  }
+  // while ($row = $STH->fetch()) {
+  //   echo '<label><input type="radio" name="id_shop" value="' . $row['id_shop'] . '">' . $row['name_shop'] . ' - адрес: ' . $row['address_shop'] . '</label><br>';
+  //   # onclick="choice()" - снимает блокировку с кнопки отправки формы, когда выбран магазин
+  // }
+  // echo '<br>';
+  // if ($_SESSION['message_shop']) {
+  //   echo '<p class="msg_shop"> ' . $_SESSION['message_shop'] . ' </p>';
+  //   unset($_SESSION['message_shop']);
+  // }
 
   # # # cписок магазинов в таблице # # #
   require_once('connect.php');
@@ -31,7 +31,7 @@ if (!$_SESSION['user']) {
 
   # устанавливаем режим выборки
   $STH->setFetchMode(PDO::FETCH_ASSOC);
-  echo '<br><div class="table_shop">
+  echo '<div class="table_shop">
         <table>
           <thead>
             <tr><th colspan="6">Магазины</th></tr>
@@ -59,7 +59,7 @@ if (!$_SESSION['user']) {
     # onclick="choice()" - снимает блокировку с кнопки отправки формы, когда выбран магазин
   }
   # пишем "хвост" таблицы
-  echo '</tbody></table></div>';
+  echo '</tbody></table></div><br>';
   if ($_SESSION['message_shop']) {
     echo '<p class="msg_shop"> ' . $_SESSION['message_shop'] . ' </p>';
     unset($_SESSION['message_shop']);
