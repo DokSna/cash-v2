@@ -17,20 +17,24 @@ if (!$_SESSION['user']) {
   ?>
 
   <link rel="stylesheet" href="style/profile.css">
+  <link rel="stylesheet" href="style/userpanel.css">
 
 </head>
 
 <body>
   <!-- Профиль -->
   <!-- В ы х о д -->
-  <p><a href="vendor/logout.php" class="logout">Выход</a></p>
+  <!-- <p><a href="vendor/logout.php" class="logout">Выход</a></p> -->
   <?php
-  echo '<p>Пользователь: ' . $_SESSION['user']['full_name'] . '.</p>';
+  // echo '<p>Пользователь: ' . $_SESSION['user']['full_name'] . '.</p>';
   # Если admin - даём ссылку
-  if ($_SESSION['user']['admin'] == true) {
-    echo '<p><a href="adminlk.php">admin page</a></p>';
-  }
+  // if ($_SESSION['user']['admin'] == true) {
+  //   echo '<p><a href="adminlk.php">admin page</a></p>';
+  // }
+  ?>
 
+  <?php
+  require('blocks/userpanel.php');
   ?>
 
   <!-- наличность -->
@@ -80,7 +84,7 @@ if (!$_SESSION['user']) {
     <input type="number" readonly value="0" name="sum" id="summa">
     <br><br>
 
-    <input id="submitgo" type="submit" value="Отправить" onfocus="calc()" onmouseover="calc()" >  
+    <input id="submitgo" type="submit" value="Отправить" onfocus="calc()" onmouseover="calc()">
     <!-- disabled -->
     <?php
     if ($_SESSION['message']) {

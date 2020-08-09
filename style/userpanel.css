@@ -1,0 +1,9 @@
+.userpanel {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+/* .userpanel_logout {
+  margin-right: 5px;
+} */
