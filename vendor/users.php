@@ -16,7 +16,7 @@ if ($_SESSION['user']['admin'] != true) {
   $sql_users->setFetchMode(PDO::FETCH_ASSOC);
 
   # выводим таблицу на экран
-  echo '<br><div class="table_shop">
+  echo '<div class="table_shop">
         <table>
           <thead>
             <tr><th colspan="5">Сотрудники</th></tr>
