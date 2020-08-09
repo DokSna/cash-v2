@@ -21,18 +21,16 @@ if ($_SESSION['user']['admin'] != true) {
 
   <link rel="stylesheet" href="style/profile.css">
   <link rel="stylesheet" href="style/adminlk.css">
+  <link rel="stylesheet" href="style/userpanel.css">
 </head>
 
 <body>
-  <!-- Профиль -->
-  <p><a href="vendor/logout.php" class="logout">Выход</a></p>
-  <?php
-  echo '<p>Пользователь: ' . $_SESSION['user']['full_name'] . '.</p>';
 
-  echo '<a href="profile.php">user page</a>';
+  <!-- Профиль -->
+  <?php
+  require('blocks/adminpanel.php');
 
   # Сотрудники
-  echo '<br>';
   include('./vendor/users.php');
 
   # Магазины

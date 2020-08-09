@@ -22,16 +22,6 @@ if (!$_SESSION['user']) {
 </head>
 
 <body>
-  <!-- Профиль -->
-  <!-- В ы х о д -->
-  <!-- <p><a href="vendor/logout.php" class="logout">Выход</a></p> -->
-  <?php
-  // echo '<p>Пользователь: ' . $_SESSION['user']['full_name'] . '.</p>';
-  # Если admin - даём ссылку
-  // if ($_SESSION['user']['admin'] == true) {
-  //   echo '<p><a href="adminlk.php">admin page</a></p>';
-  // }
-  ?>
 
   <?php
   require('blocks/userpanel.php');
