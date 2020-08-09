@@ -16,17 +16,26 @@ if ($_SESSION['user']) {
 
 <body>
 
-  <!-- Форма регистрации -->
+  <!-- Форма регистрации --><!-- pattern="[А-Яа-яЁё]*?\s[А-Яа-яЁё]*?\s[А-Яа-яЁё]{7,100}"  -->
 
   <form action="vendor/signup.php" method="post">
     <label>ФИО</label>
-    <input type="text" name="full_name" placeholder="Введите свое полное имя">
+    <input type="text" name="full_name" placeholder="Введите свое полное имя" required pattern="[А-Яа-яЁё ]+" 
+    
+      title="Введите Фамилию Имя и Отчество (через пробелы, 7-100 русских символов).">
+
     <label>Логин</label>
-    <input type="text" name="login" placeholder="Введите свой логин">
+    <input type="text" name="login" placeholder="Введите логин" required pattern="[A-Za-z0-9]{3,30}" 
+      title="Используйте только латинские буквы (A-Z, a-z) и цифры (0-9). Длина от 3-х до 30-ти символов.">
+
     <label>Пароль</label>
-    <input type="password" name="password" placeholder="Введите пароль">
+    <input type="password" name="password" placeholder="Введите пароль" required pattern = "(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,30}" 
+    title = "Пароль должен содержать хотя бы одну цифру, одну маленькую и одну большую латинскую букву. Длина 6-30 символов.">
+
     <label>Подтверждение пароля</label>
-    <input type="password" name="password_confirm" placeholder="Подтвердите пароль">
+    <input type="password" name="password_confirm" placeholder="Подтвердите пароль" required pattern = "(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,30}" 
+    title = "Пароль должен содержать хотя бы одну цифру, одну маленькую и одну большую латинскую букву. Длина 6-30 символов.">
+
     <button type="submit">Зарегистрироваться</button>
     <p>
       <a href="/">авторизироваться</a>
