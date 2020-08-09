@@ -17,12 +17,13 @@ if ($_SESSION['user']) {
 <body>
 
   <!-- Форма регистрации --><!-- pattern="[А-Яа-яЁё]*?\s[А-Яа-яЁё]*?\s[А-Яа-яЁё]{7,100}"  -->
+  <!-- pattern="[А-Яа-яЁё ]{7,100}" -->
 
   <form action="vendor/signup.php" method="post">
     <label>ФИО</label>
-    <input type="text" name="full_name" placeholder="Введите свое полное имя" required pattern="[А-Яа-яЁё ]+" 
+    <input type="text" name="full_name" placeholder="Введите свое полное имя" required pattern="[А-ЯЁ][а-яё]{1,32}\s[А-ЯЁ][а-яё]{1,32}\s[А-ЯЁ][а-яё]{1,32}$" 
     
-      title="Введите Фамилию Имя и Отчество (через пробелы, 7-100 русских символов).">
+      title="Введите Фамилию Имя и Отчество (через пробелы c Заглавной буквы, 6-98 русских символов).">
 
     <label>Логин</label>
     <input type="text" name="login" placeholder="Введите логин" required pattern="[A-Za-z0-9]{3,30}" 
