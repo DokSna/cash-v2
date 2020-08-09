@@ -29,6 +29,9 @@ p {
 }
 
 /* таблица с магазинами */
+.table_shop {
+  margin-bottom: 5px;
+}
 .table_shop table {
   width: 100%;
   /* Ширина таблицы */
@@ -66,6 +69,21 @@ label {
   cursor: pointer;
 }
 
+/* стили для купюр и монет */
+.cash {
+  display: flex;
+  justify-content: space-around;
+}
+.cash label {
+  margin-top: 15px;
+}
+.cash_kupur,
+.cash_monet,
+.cash_monet {
+  display: flex;
+  flex-direction: column;
+}
+/* ------------------------------- */
 /* оформление input type="radio"
 .redio_shop {
   -webkit-appearance: none;

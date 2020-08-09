@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Cash - Валиков Артем Борисович</title>
+  <link rel="stylesheet" href="../style/profile.css">
+  <link rel="stylesheet" href="../style/userpanel.css">
+
+</head>
+
+<body>
+
+  <div class="userpanel">
+
+    <div class="userpanel_logout">
+      <a href="vendor/logout.php" class="logout">Выход</a>
+    </div>
+
+    <div class="userpanel_user-name">
+      <p>пользователь: Валиков Артем Борисович.</p>
+    </div>
+
+    <div class="userpanel_user-admin">
+      <a href="adminlk.php">admin page</a>
+    </div>
+  </div>
+  <!-- наличность -->
+  <form action="vendor/sendm.php" method="post">
+    <!-- выбрать магазин -->
+    <div class="table_shop">
+      <table>
+        <thead>
+          <tr>
+            <th colspan="6">Магазины</th>
+          </tr>
+          <tr>
+            <th></th>
+            <th>id</th>
+            <th>Название</th>
+            <th>адрес</th>
+            <th>телефон</th>
+            <th>e-mail</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th><label for="selShop_1"><input type="radio" name="id_shop" value="1" id="selShop_1"></label></th>
+            <th><label for="selShop_1">1</label></th>
+            <td id="nameShopid_1"><label for="selShop_1">Жилгородок</label></td>
+            <td id="adresShopid_1"><label for="selShop_1">г. Балашиха, мкр. Ольгино, ул. Жилгородок, д. 44А</label></td>
+            <th><label for="selShop_1">+79013874307</label></th>
+            <td><label for="selShop_1">cpft.olgino2@yandex.ru</label></td>
+          </tr>
+          <tr>
+            <th><label for="selShop_2"><input type="radio" name="id_shop" value="2" id="selShop_2"></label></th>
+            <th><label for="selShop_2">2</label></th>
+            <td id="nameShopid_2"><label for="selShop_2">Павлино</label></td>
+            <td id="adresShopid_2"><label for="selShop_2">г. Балашиха, мкр. Павлино, д. 15А</label></td>
+            <th><label for="selShop_2">+79771694525</label></th>
+            <td><label for="selShop_2">cpft.pavlino@yandex.ru</label></td>
+          </tr>
+          <tr>
+            <th><label for="selShop_3"><input type="radio" name="id_shop" value="3" id="selShop_3"></label></th>
+            <th><label for="selShop_3">3</label></th>
+            <td id="nameShopid_3"><label for="selShop_3">Граничная</label></td>
+            <td id="adresShopid_3"><label for="selShop_3">г. Балашиха, мкр. Ольгино, ул. Граничная, д. 18</label></td>
+            <th><label for="selShop_3">+7 901 424 73 04</label></th>
+            <td><label for="selShop_3">cpft.olgino@yandex.ru</label></td>
+          </tr>
+          <tr>
+            <th><label for="selShop_4"><input type="radio" name="id_shop" value="4" id="selShop_4"></label></th>
+            <th><label for="selShop_4">4</label></th>
+            <td id="nameShopid_4"><label for="selShop_4">Саввино</label></td>
+            <td id="adresShopid_4"><label for="selShop_4">г.Балашиха, мкр. Саввино, ул.Саввинская д. 5А</label></td>
+            <th><label for="selShop_4">+79771484638</label></th>
+            <td><label for="selShop_4">cpft.savvino@yandex.ru</label></td>
+          </tr>
+          <tr>
+            <th><label for="selShop_5"><input type="radio" name="id_shop" value="5" id="selShop_5"></label></th>
+            <th><label for="selShop_5">5</label></th>
+            <td id="nameShopid_5"><label for="selShop_5">Купавна</label></td>
+            <td id="adresShopid_5"><label for="selShop_5">Балашиха, мкр. Купавна, ул. Адмирала Нахимова, д. 13</label>
+            </td>
+            <th><label for="selShop_5">+7 991 226 53 23</label></th>
+            <td><label for="selShop_5">cpft.kupavna@yandex.ru</label></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="cash">
+      <div class="cash_kupur">
+        <table>
+          <thead>
+            <tr>
+              <th colspan="3">Купюры</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>5000</td>
+              <td><input type="number" value="0" min="0" id="kup5000" name="kup5000" onblur="calc()"></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>2000</td>
+              <td><input type="number" value="0" min="0" id="kup2000" name="kup2000" onblur="calc()"></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>1000</td>
+              <td><input type="number" value="0" min="0" id="kup1000" name="kup1000" onblur="calc()"></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>500</td>
+              <td><input type="number" value="0" min="0" id="kup500" name="kup500" onblur="calc()"></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>200</td>
+              <td><input type="number" value="0" min="0" id="kup200" name="kup200" onblur="calc()"></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>100</td>
+              <td><input type="number" value="0" min="0" id="kup100" name="kup100" onblur="calc()"></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>50</td>
+              <td><input type="number" value="0" min="0" id="kup50" name="kup50" onblur="calc()"></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>10</td>
+              <td><input type="number" value="0" min="0" id="kup10" name="kup10" onblur="calc()"></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+      <div class="cash_monet">
+
+        <table>
+          <thead>
+            <tr>
+              <th>Монеты</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>10</td>
+              <td><input type="number" value="0" min="0" id="moneta10" name="moneta10" onblur="calc()"></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td><input type="number" value="0" min="0" id="moneta5" name="moneta5" onblur="calc()"></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td><input type="number" value="0" min="0" id="moneta2" name="moneta2" onblur="calc()"></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td><input type="number" value="0" min="0" id="moneta1" name="moneta1" onblur="calc()"></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>0.50</td>
+              <td><input type="number" value="0" min="0" id="copeyka50" name="copeyka50" onblur="calc()"></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>0.10</td>
+              <td><input type="number" value="0" min="0" id="copeyka10" name="copeyka10" onblur="calc()"></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>0.05</td>
+              <td><input type="number" value="0" min="0" id="copeyka5" name="copeyka5" onblur="calc()"></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>0.01</td>
+              <td><input type="number" value="0" min="0" id="copeyka1" name="copeyka1" onblur="calc()"></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+      <div class="cash_summa">
+        <p>Сумма купюр: <span id="kupSumm">0</span> рублей.</p>
+
+        <p>Сумма монет: <span id="monetSumm">0</span></p>
+        <!-- <p>Общая Сумма: <span name="sum" id="summa">0</span></p> -->
+        <p>Общая Сумма</p>
+        <input type="number" readonly value="0" name="sum" id="summa">
+
+
+        <input id="submitgo" type="submit" value="Отправить" onfocus="calc()" onmouseover="calc()">
+        <!-- disabled -->
+
+      </div>
+    </div>
+
+  </form>
+  <script src="calc.js"></script>
+</body>
+
+</html>
