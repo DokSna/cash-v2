@@ -28,6 +28,23 @@ function summ_one_kop() {
   summa_el = nominal * quantity;
   next_el.innerHTML = Number(summa_el / 100).toFixed(2);
 }
+function all_sum(){
+  // купюры
+  let summkup5000 = Number(document.getElementById('kup5000').parentElement.nextElementSibling.innerHTML);
+  let summkup2000 = Number(document.getElementById('kup2000').parentElement.nextElementSibling.innerHTML);
+  let summkup1000 = Number(document.getElementById('kup1000').parentElement.nextElementSibling.innerHTML);
+  let summkup500  = Number(document.getElementById('kup500').parentElement.nextElementSibling.innerHTML);
+  let summkup200  = Number(document.getElementById('kup200').parentElement.nextElementSibling.innerHTML);
+  let summkup100  = Number(document.getElementById('kup100').parentElement.nextElementSibling.innerHTML);
+  let summkup50   = Number(document.getElementById('kup50').parentElement.nextElementSibling.innerHTML);
+  let summkup10   = Number(document.getElementById('kup10').parentElement.nextElementSibling.innerHTML);
+console.log(summkup5000);
+  // сумма купюр
+  let poleKupSumm = document.getElementById("kupSumm");
+  let summaKup = Number(summkup5000 + summkup2000 + summkup1000 + summkup500 + summkup200 + summkup100 + summkup50 + summkup10);
+  poleKupSumm.innerHTML = summaKup;
+
+}
 // повесим собития на элементы
 kup5000.addEventListener("input", summ_one);
 kup2000.addEventListener("input", summ_one);
@@ -47,6 +64,15 @@ copeyka10.addEventListener("input", summ_one_kop);
 copeyka5.addEventListener("input", summ_one_kop);
 copeyka1.addEventListener("input", summ_one_kop);
 
+// будем считать общие суммы
+kup5000.addEventListener("input", all_sum);
+kup2000.addEventListener("input", all_sum);
+kup1000.addEventListener("input", all_sum);
+kup500.addEventListener("input", all_sum);
+kup200.addEventListener("input", all_sum);
+kup100.addEventListener("input", all_sum);
+kup50.addEventListener("input", all_sum);
+kup10.addEventListener("input", all_sum);
 
 
 
