@@ -73,15 +73,40 @@ label {
 .cash {
   display: flex;
   justify-content: space-around;
+  margin-top: 20px;
+  flex-wrap: wrap;
 }
 .cash label {
   margin-top: 15px;
 }
+.cash tr {
+  height: 30px;
+}
+.cash td {
+  min-width: 40px;
+}
 .cash_kupur,
 .cash_monet,
-.cash_monet {
+.cash_summa {
   display: flex;
   flex-direction: column;
+  border: 1px solid grey;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 2px 1px 5px rgba(122,122,122,0.9);
+  width: 240px;
+  margin-bottom: 10px;
+}
+.cash_kupur tbody tr>td:first-child,
+.cash_monet tbody tr>td:first-child,
+.cash_kupur tbody tr>td:last-child,
+.cash_monet tbody tr>td:last-child {
+  text-align: right;
+  padding-right: 10px;
+}
+.cash_kupur input,
+.cash_monet input {
+  width: 100px;
 }
 /* ------------------------------- */
 /* оформление input type="radio"

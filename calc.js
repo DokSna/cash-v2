@@ -1,3 +1,55 @@
+function summ_one() {
+  // ka5.innerHTML = kup5000.value;
+  // ka5.innerHTML = this.value;
+  // jo - это имя для 'this'
+  let ded;  //родитель
+  ded = this.parentElement;  //получаем ячейку td где input
+  let pre_el = ded.previousElementSibling;
+  let next_el = ded.nextElementSibling;
+  let nominal;  //сюда поместим номинал
+  let quantity;  //сюда поместим количество
+  let summa_el;  //сумма элемента (конкретно этого номинала)
+  nominal = Number(pre_el.innerHTML);  //смотрим что в предыдущей ячейке таблицы написано
+  quantity = Number(this.value);
+  summa_el = nominal * quantity;
+  next_el.innerHTML = summa_el;
+}
+function summ_one_kop() {
+  // есть ньюанс в js с не целыми числами
+  let ded;  //родитель
+  ded = this.parentElement;  //получаем ячейку td где input
+  let pre_el = ded.previousElementSibling;
+  let next_el = ded.nextElementSibling;
+  let nominal;  //сюда поместим номинал
+  let quantity;  //сюда поместим количество
+  let summa_el;  //сумма элемента (конкретно этого номинала)
+  nominal = Number(pre_el.innerHTML * 100);  //смотрим что в предыдущей ячейке таблицы написано
+  quantity = Number(this.value);
+  summa_el = nominal * quantity;
+  next_el.innerHTML = Number(summa_el / 100).toFixed(2);
+}
+// повесим собития на элементы
+kup5000.addEventListener("input", summ_one);
+kup2000.addEventListener("input", summ_one);
+kup1000.addEventListener("input", summ_one);
+kup500.addEventListener("input", summ_one);
+kup200.addEventListener("input", summ_one);
+kup100.addEventListener("input", summ_one);
+kup50.addEventListener("input", summ_one);
+kup10.addEventListener("input", summ_one);
+
+moneta10.addEventListener("input", summ_one);
+moneta5.addEventListener("input", summ_one);
+moneta2.addEventListener("input", summ_one);
+moneta1.addEventListener("input", summ_one);
+copeyka50.addEventListener("input", summ_one_kop);
+copeyka10.addEventListener("input", summ_one_kop);
+copeyka5.addEventListener("input", summ_one_kop);
+copeyka1.addEventListener("input", summ_one_kop);
+
+
+
+
 function calc() {
   // купюры
   let kolkup5000 = +document.getElementById('kup5000').value * 5000;
