@@ -59,9 +59,9 @@ if (!$_SESSION['user']) {
     # onclick="choice()" - снимает блокировку с кнопки отправки формы, когда выбран магазин
   }
   # пишем "хвост" таблицы
-  echo '</tbody></table></div><br>';
-  if ($_SESSION['message_shop']) {
-    echo '<p class="msg_shop"> ' . $_SESSION['message_shop'] . ' </p>';
-    unset($_SESSION['message_shop']);
-  }
+  echo '</tbody></table></div>';
+  // if ($_SESSION['message_shop']) {
+  //   echo '<p class="msg_shop"> ' . $_SESSION['message_shop'] . ' </p>';
+  //   unset($_SESSION['message_shop']);
+  // }
 }
