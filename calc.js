@@ -28,7 +28,13 @@ function summ_one_kop() {
   summa_el = nominal * quantity;
   next_el.innerHTML = Number(summa_el / 100).toFixed(2);
 }
-function all_sum(){
+function amount_total() {
+  let pole_AmountTotal = document.getElementById('summa');
+  let poleKupSumm = document.getElementById('kupSumm');
+  let pole_monetSumm = document.getElementById('monetSumm');
+  pole_AmountTotal.innerHTML = (Number(poleKupSumm.innerHTML) + Number(pole_monetSumm.innerHTML)).toFixed(2);
+}
+function amount_of_bills(){
   // купюры
   let summkup5000 = Number(document.getElementById('kup5000').parentElement.nextElementSibling.innerHTML);
   let summkup2000 = Number(document.getElementById('kup2000').parentElement.nextElementSibling.innerHTML);
@@ -38,12 +44,28 @@ function all_sum(){
   let summkup100  = Number(document.getElementById('kup100').parentElement.nextElementSibling.innerHTML);
   let summkup50   = Number(document.getElementById('kup50').parentElement.nextElementSibling.innerHTML);
   let summkup10   = Number(document.getElementById('kup10').parentElement.nextElementSibling.innerHTML);
-console.log(summkup5000);
+// console.log(summkup5000);
   // сумма купюр
   let poleKupSumm = document.getElementById("kupSumm");
   let summaKup = Number(summkup5000 + summkup2000 + summkup1000 + summkup500 + summkup200 + summkup100 + summkup50 + summkup10);
   poleKupSumm.innerHTML = summaKup;
-
+  amount_total();
+}
+function amount_of_coins(){
+  // купюры
+  let summ_moneta10  = Number(document.getElementById('moneta10').parentElement.nextElementSibling.innerHTML);
+  let summ_moneta5   = Number(document.getElementById('moneta5').parentElement.nextElementSibling.innerHTML);
+  let summ_moneta2   = Number(document.getElementById('moneta2').parentElement.nextElementSibling.innerHTML);
+  let summ_moneta1   = Number(document.getElementById('moneta1').parentElement.nextElementSibling.innerHTML);
+  let summ_copeyka50 = Number(document.getElementById('copeyka50').parentElement.nextElementSibling.innerHTML) * 100;
+  let summ_copeyka10 = Number(document.getElementById('copeyka10').parentElement.nextElementSibling.innerHTML) * 100;
+  let summ_copeyka5  = Number(document.getElementById('copeyka5').parentElement.nextElementSibling.innerHTML) * 100;
+  let summ_copeyka1  = Number(document.getElementById('copeyka1').parentElement.nextElementSibling.innerHTML) * 100;
+  // сумма купюр
+  let pole_monetSumm = document.getElementById("monetSumm");
+  let summaMonet = Number(summ_moneta10 + summ_moneta5 + summ_moneta2 + summ_moneta1) + (Number(summ_copeyka50 + summ_copeyka10 + summ_copeyka5 + summ_copeyka1)) / 100;
+  pole_monetSumm.innerHTML = summaMonet.toFixed(2);
+  amount_total();
 }
 // повесим собития на элементы
 kup5000.addEventListener("input", summ_one);
@@ -64,15 +86,25 @@ copeyka10.addEventListener("input", summ_one_kop);
 copeyka5.addEventListener("input", summ_one_kop);
 copeyka1.addEventListener("input", summ_one_kop);
 
-// будем считать общие суммы
-kup5000.addEventListener("input", all_sum);
-kup2000.addEventListener("input", all_sum);
-kup1000.addEventListener("input", all_sum);
-kup500.addEventListener("input", all_sum);
-kup200.addEventListener("input", all_sum);
-kup100.addEventListener("input", all_sum);
-kup50.addEventListener("input", all_sum);
-kup10.addEventListener("input", all_sum);
+// будем считать суммы купюр
+kup5000.addEventListener("input", amount_of_bills);
+kup2000.addEventListener("input", amount_of_bills);
+kup1000.addEventListener("input", amount_of_bills);
+kup500.addEventListener("input", amount_of_bills);
+kup200.addEventListener("input", amount_of_bills);
+kup100.addEventListener("input", amount_of_bills);
+kup50.addEventListener("input", amount_of_bills);
+kup10.addEventListener("input", amount_of_bills);
+
+// будем считать суммы монет
+moneta10.addEventListener("input", amount_of_coins);
+moneta5.addEventListener("input", amount_of_coins);
+moneta2.addEventListener("input", amount_of_coins);
+moneta1.addEventListener("input", amount_of_coins);
+copeyka50.addEventListener("input", amount_of_coins);
+copeyka10.addEventListener("input", amount_of_coins);
+copeyka5.addEventListener("input", amount_of_coins);
+copeyka1.addEventListener("input", amount_of_coins);
 
 
 
