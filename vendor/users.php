@@ -2,16 +2,20 @@
 session_start();
 if (!$_SESSION['user']) {
   header('Location: /');
-}
-if ($_SESSION['user']['admin'] != true) {
+} 
+elseif ($_SESSION['user']['employee'] != true) {
+  header('Location: stranger.php');
+} 
+elseif ($_SESSION['user']['admin'] != true) {
   header('Location: profile.php');
-} else {
+} 
+else {
   require_once('connect.php');
 
   # поскольку это обычный запрос без placeholder’ов,
   # можно сразу использовать метод query()  
   $sql_users = $connect->query('SELECT * FROM users');
-  
+
   # устанавливаем режим выборки
   $sql_users->setFetchMode(PDO::FETCH_ASSOC);
 
@@ -19,13 +23,14 @@ if ($_SESSION['user']['admin'] != true) {
   echo '<div class="table_shop">
         <table>
           <thead>
-            <tr><th colspan="5">Сотрудники</th></tr>
+            <tr><th colspan="6">Сотрудники</th></tr>
             <tr>
               <th>id</th>
               <th>ФИО</th>
               <th>Логин</th>
-              <th>пароль</th>
+              <th>сотрудник</th>
               <th>админ</th>
+              <th>изменить</th>
             </tr>
           </thead>
           <tbody>
@@ -36,14 +41,21 @@ if ($_SESSION['user']['admin'] != true) {
             <th>' . $row_user['id_user'] . '</th>
             <td id="nameUserid_' . $row_user['id_user'] . '">' . $row_user['full_name'] . '</td>
             <td id="passwordid_' . $row_user['id_user'] . '">' . $row_user['login'] . '</td>
-            <th>изменить пароль</th>
-            <td class="poz_center">';
-              if ($row_user['admin']) {
-                echo ('да');
-              } else {
-                echo ('нет');
-              }
-      echo '</td>
+            <td class="poz_center ';
+    if ($row_user['employee']) {
+      echo ('check_true">да');
+    } else {
+      echo ('">нет');
+    }
+    echo '</td>
+            <td class="poz_center ';
+    if ($row_user['admin']) {
+      echo ('check_true">да');
+    } else {
+      echo ('">нет');
+    }
+    echo '</td>
+    <td>изменить</td>
           </tr>';
     # onclick="choice()" - снимает блокировку с кнопки отправки формы, когда выбран магазин
   }

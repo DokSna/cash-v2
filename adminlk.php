@@ -23,8 +23,8 @@ if (!$_SESSION['user']['admin']) {
   ?>
 
   <link rel="stylesheet" href="style/profile.css">
-  <link rel="stylesheet" href="style/adminlk.css">
   <link rel="stylesheet" href="style/userpanel.css">
+  <link rel="stylesheet" href="style/adminlk.css">
 </head>
 
 <body>

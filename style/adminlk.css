@@ -37,3 +37,6 @@
 .poz_r {
   text-align: right;
 }
+.check_true {
+  background-color: rgba(0, 128, 0, 0.3);
+}
