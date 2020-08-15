@@ -54,9 +54,22 @@ else {
     } else {
       echo ('">нет');
     }
-    echo '</td>
-    <td class="poz_center setting" id="edit_user_id_' . $row_user['id_user'] . '"><img src="image/setting.jpg" alt="изменить" height="20px" color="green"></td>
-          </tr>';
+    echo '</td>';
+
+    echo '
+
+    <td class="setting_td">
+      <button class="setting_but" id="edit_user_id_' . $row_user['id_user'] . '" onclick="edit_user()">
+        <img class="setting_img" src="image/setting.jpg" alt="изменить" style="vertical-align:middle height="20px""> 
+      </button></td>
+<!--
+    <td class="poz_center setting" id="edit_user_id_' . $row_user['id_user'] . '">
+      <img src="image/setting.jpg" alt="изменить" height="20px" color="green">
+    </td>
+-->
+    ';
+
+    echo '</tr>';
     # onclick="choice()" - снимает блокировку с кнопки отправки формы, когда выбран магазин
   }
   # пишем "хвост" таблицы
