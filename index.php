@@ -1,8 +1,11 @@
 <?php
 session_start();
 
-if ($_SESSION['user']) {
+if ($_SESSION['user'] && $_SESSION['user']['employee']) {
   header('Location: profile.php');
+}
+if ($_SESSION['user'] && !$_SESSION['user']['employee']) {
+  header('Location: stranger.php');
 }
 
 ?>
