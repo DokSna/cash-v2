@@ -55,7 +55,7 @@ else {
       echo ('">нет');
     }
     echo '</td>
-    <td>изменить</td>
+    <td class="poz_center setting" id="edit_user_id_' . $row_user['id_user'] . '"><img src="image/setting.jpg" alt="изменить" height="20px" color="green"></td>
           </tr>';
     # onclick="choice()" - снимает блокировку с кнопки отправки формы, когда выбран магазин
   }

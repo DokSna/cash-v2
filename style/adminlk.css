@@ -40,3 +40,13 @@
 .check_true {
   background-color: rgba(0, 128, 0, 0.3);
 }
+
+/* редактирование записей */
+.setting {
+  margin: 2px;
+  cursor: pointer;
+}
+.setting:hover {
+  box-shadow: inset 0px 0px 5px rgba(122,122,122,0.9);
+
+}
