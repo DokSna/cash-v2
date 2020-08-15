@@ -3,6 +3,9 @@ session_start();
 if (!$_SESSION['user']) {
   header('Location: /');
 }
+if ($_SESSION['user']['employee'] != 1) {
+  header('Location: ../stranger.php');
+}
 ?>
 
 <!DOCTYPE html>

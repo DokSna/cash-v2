@@ -61,16 +61,23 @@ else {
     $user = $row;
 
     $_SESSION['user'] = [
-      "id" => $user['id_user'],
+      "id"        => $user['id_user'],
       "full_name" => $user['full_name'],
-      "login" => $user['login'],
-      "admin" => $user['admin'],
-      "report_date_start" => $user['report_date_start'],
-      "report_date_end" => $user['report_date_end']
+      "login"     => $user['login'],
+      "employee"  => $user['employee'],   //сотрудник или чужак
+      "admin"     => $user['admin']       //админ или нет
+      // "report_date_start" => $user['report_date_start'],
+      // "report_date_end" => $user['report_date_end']
     ];
 
-    header('Location: ../profile.php');
-  } else {
+    if ($_SESSION['user']['employee'] == 1) {
+      header('Location: ../profile.php');
+    }
+    else {
+      header('Location: ../stranger.php');
+    }
+  }
+  else {
     $_SESSION['message'] = 'Не верный логин или пароль';
     header('Location: ../index.php');
   }
@@ -81,7 +88,7 @@ else {
 
 <!-- <pre>
     <?php
-    // print_r($check_user);
+    // print_r($_SESSION['employee']);
     // print_r($user);
     // echo '---==----<br>';
     // print_r($row);

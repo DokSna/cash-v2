@@ -3,7 +3,10 @@ session_start();
 if (!$_SESSION['user']) {
   header('Location: /');
 }
-if ($_SESSION['user']['admin'] != true) {
+if (!$_SESSION['user']['employee']) {
+  header('Location: ../stranger.php');
+}
+if (!$_SESSION['user']['admin']) {
   header('Location: profile.php');
 }
 ?>

@@ -8,3 +8,13 @@
 .userpanel_user-admin {
   width: 100px;
 }
+.msg_stranger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  color: black;
+  font-size: 18px;
+  padding: 10px;
+}

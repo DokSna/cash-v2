@@ -12,7 +12,7 @@
 
   <?php
   # Если admin - даём ссылку
-  if ($_SESSION['user']['admin'] == true) {
+  if ($_SESSION['user']['admin'] && $_SESSION['user']['employee']) {
     echo '<div class="userpanel_user-admin">
             <a href="adminlk.php">admin page</a>
           </div>';
