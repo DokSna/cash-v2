@@ -38,17 +38,17 @@ else {
   # выводим строки таблицы
   while ($row_user = $sql_users->fetch()) {
     echo '<tr>
-            <th>' . $row_user['id_user'] . '</th>
-            <td id="nameUserid_' . $row_user['id_user'] . '">' . $row_user['full_name'] . '</td>
-            <td id="passwordid_' . $row_user['id_user'] . '">' . $row_user['login'] . '</td>
-            <td class="poz_center ';
+            <th id="user_id_' . $row_user['id_user'] . '">' . $row_user['id_user'] . '</th>
+            <td id="user_full_name_' . $row_user['id_user'] . '">' . $row_user['full_name'] . '</td>
+            <td id="user_login_' . $row_user['id_user'] . '">' . $row_user['login'] . '</td>
+            <td id="user_employee_' . $row_user['id_user'] . '" class="poz_center ';
     if ($row_user['employee']) {
       echo ('check_true">да');
     } else {
       echo ('">нет');
     }
     echo '</td>
-            <td class="poz_center ';
+            <td id="user_admin_' . $row_user['id_user'] . '" class="poz_center ';
     if ($row_user['admin']) {
       echo ('check_true">да');
     } else {
@@ -58,8 +58,8 @@ else {
 
     echo '
 
-    <td class="setting_td">
-      <button class="setting_but" id="edit_user_id_' . $row_user['id_user'] . '" onclick="edit_user()">
+    <td class="setting_td" id="edit_user_id_' . $row_user['id_user'] . '">
+      <button class="setting_but" onclick="edit_user(' . $row_user['id_user'] . ')">
         <img class="setting_img" src="image/setting.jpg" alt="изменить" style="vertical-align:middle height="20px""> 
       </button></td>
 <!--

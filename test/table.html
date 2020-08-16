@@ -1,200 +1,512 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <title>Таблица</title>
-  <style>
-    table {
-      width: 100%;
-      /* Ширина таблицы */
-      border-collapse: collapse;
-      /* Убираем двойные линии */
-    }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    thead {
-      background: #f5e8d0;
-      /* Цвет фона заголовка */
-    }
-
-    td,
-    th {
-      padding: 5px;
-      /* Поля в ячейках */
-      border: 1px solid #333;
-      /* Параметры рамки */
-    }
-
-    tbody tr:nth-child(even) {
-      background: #f0f0f0;
-      /* Зебра */
-    }
-
-  </style>
+  <title>Cash - Валиков Артем Борисович</title>
+  <link rel="stylesheet" href="../style/profile.css">
+  <link rel="stylesheet" href="../style/userpanel.css">
+  <link rel="stylesheet" href="../style/adminlk.css">
 </head>
 
 <body>
 
-  <table>
-    <thead> .... </thead>
-    <tfoot> ... </tfoot>
-    <tbody>
-      <tr>
-        <td> ... </td>
-      </tr>
-    </tbody>
-  </table>
-  <!-- 
-  <th rowspan="2">Интервалы размеров, мм</th>
-  <th colspan="4">Допуск IT, мкм, для квалитетов</th> 
+  <!-- Профиль -->
+  <div class="userpanel">
 
-  <table>
-    <thead>
+  <div class="userpanel_logout">
+    <a href="vendor/logout.php" class="logout">Выход</a>
+  </div>
+
+  <div class="userpanel_user-name">
+    <p>пользователь: Валиков Артем Борисович.</p>  </div>
+
+  <div class="userpanel_user-admin">
+    <a href="profile.php">user page</a>
+  </div>
+
+</div><div class="table_shop">
+        <table>
+          <thead>
+            <tr><th colspan="6">Сотрудники</th></tr>
+            <tr>
+              <th>id</th>
+              <th>ФИО</th>
+              <th>Логин</th>
+              <th>сотрудник</th>
+              <th>админ</th>
+              <th>изменить</th>
+            </tr>
+          </thead>
+          <tbody>
+  <tr>
+            <th>6</th>
+            <td id="nameUserid_6">Валиков Артем Борисович</td>
+            <td id="passwordid_6">Artem</td>
+            <td class="poz_center check_true">да</td>
+            <td class="poz_center check_true">да</td>
+
+    <td class="setting_td" id="edit_user_id_6">
+      <button class="setting_but" onclick="edit_user(edit_user_id_6)">
+        <img class="setting_img" src="image/setting.jpg" alt="изменить" style="vertical-align:middle height="20px""> 
+      </button></td>
+<!--
+    <td class="poz_center setting" id="edit_user_id_6">
+      <img src="image/setting.jpg" alt="изменить" height="20px" color="green">
+    </td>
+-->
+    </tr>
+
+    <tr>
+            <th>8</th>
+            <td id="nameUserid_8">Дербикова Анастасия Валерьевна</td>
+            <td id="passwordid_8">derbikova</td>
+            <td class="poz_center ">нет</td>
+            <td class="poz_center check_true">да</td>
+
+    <td class="setting_td" id="edit_user_id_8">
+      <button class="setting_but" onclick="edit_user(edit_user_id_8)">
+        <img class="setting_img" src="image/setting.jpg" alt="изменить" style="vertical-align:middle height="20px""> 
+      </button></td>
+    </tr>
+
+    <tr>
+            <th>10</th>
+            <!-- ФИО -->
+            <td id="nameUserid_10">
+            <input class="edit_line" type="text" name="full_name" placeholder="Введите свое полное имя" required pattern="[А-ЯЁ][а-яё]{1,32}\s[А-ЯЁ][а-яё]{1,32}\s[А-ЯЁ][а-яё]{1,32}$" title="Введите Фамилию Имя и Отчество (через пробелы c Заглавной буквы, 6-98 русских символов)." value="Иванов Петр Сергеевич">
+          </td>
+            <td id="passwordid_10">infoehra</td>
+            <td class="poz_center ">нет</td>
+            <td class="poz_center ">нет</td>
+
+    <td class="setting_td" id="edit_user_id_10">
+      <button class="setting_but" onclick="edit_user(edit_user_id_10)">
+        <img class="setting_img" src="image/setting.jpg" alt="изменить" style="vertical-align:middle height="20px""> 
+      </button></td>
+<!--
+    <td class="poz_center setting" id="edit_user_id_10">
+      <img src="image/setting.jpg" alt="изменить" height="20px" color="green">
+    </td>
+-->
+    </tr><tr>
+            <th>13</th>
+            <td id="nameUserid_13">Прохоренкова Елизавета Игоревна</td>
+            <td id="passwordid_13">prohorenkova</td>
+            <td class="poz_center ">нет</td>
+            <td class="poz_center ">нет</td>
+
+    <td class="setting_td" id="edit_user_id_13">
+      <button class="setting_but" onclick="edit_user(edit_user_id_13)">
+        <img class="setting_img" src="image/setting.jpg" alt="изменить" style="vertical-align:middle height="20px""> 
+      </button></td>
+<!--
+    <td class="poz_center setting" id="edit_user_id_13">
+      <img src="image/setting.jpg" alt="изменить" height="20px" color="green">
+    </td>
+-->
+    </tr><tr>
+            <th>16</th>
+            <td id="nameUserid_16">Орлов Артем Сергеевич</td>
+            <td id="passwordid_16">Orlov</td>
+            <td class="poz_center ">нет</td>
+            <td class="poz_center ">нет</td>
+
+    <td class="setting_td" id="edit_user_id_16">
+      <button class="setting_but" onclick="edit_user(edit_user_id_16)">
+        <img class="setting_img" src="image/setting.jpg" alt="изменить" style="vertical-align:middle height="20px""> 
+      </button></td>
+<!--
+    <td class="poz_center setting" id="edit_user_id_16">
+      <img src="image/setting.jpg" alt="изменить" height="20px" color="green">
+    </td>
+-->
+    </tr><tr>
+            <th>17</th>
+            <td id="nameUserid_17">Мумина Екатерина Олеговна</td>
+            <td id="passwordid_17">muminaekaterina</td>
+            <td class="poz_center ">нет</td>
+            <td class="poz_center ">нет</td>
+
+    <td class="setting_td" id="edit_user_id_17">
+      <button class="setting_but" onclick="edit_user(edit_user_id_17)">
+        <img class="setting_img" src="image/setting.jpg" alt="изменить" style="vertical-align:middle height="20px""> 
+      </button></td>
+<!--
+    <td class="poz_center setting" id="edit_user_id_17">
+      <img src="image/setting.jpg" alt="изменить" height="20px" color="green">
+    </td>
+-->
+    </tr><tr>
+            <th>18</th>
+            <td id="nameUserid_18">Алдошина Олеся Юрьевна</td>
+            <td id="passwordid_18">Aldoshina</td>
+            <td class="poz_center ">нет</td>
+            <td class="poz_center ">нет</td>
+
+    <td class="setting_td" id="edit_user_id_18">
+      <button class="setting_but" onclick="edit_user(edit_user_id_18)">
+        <img class="setting_img" src="image/setting.jpg" alt="изменить" style="vertical-align:middle height="20px""> 
+      </button></td>
+<!--
+    <td class="poz_center setting" id="edit_user_id_18">
+      <img src="image/setting.jpg" alt="изменить" height="20px" color="green">
+    </td>
+-->
+    </tr><tr>
+            <th>19</th>
+            <td id="nameUserid_19">Маркова Ирина Олеговна</td>
+            <td id="passwordid_19">irinamarks</td>
+            <td class="poz_center ">нет</td>
+            <td class="poz_center ">нет</td>
+
+    <td class="setting_td" id="edit_user_id_19">
+      <button class="setting_but" onclick="edit_user(edit_user_id_19)">
+        <img class="setting_img" src="image/setting.jpg" alt="изменить" style="vertical-align:middle height="20px""> 
+      </button></td>
+<!--
+    <td class="poz_center setting" id="edit_user_id_19">
+      <img src="image/setting.jpg" alt="изменить" height="20px" color="green">
+    </td>
+-->
+    </tr><tr>
+            <th>20</th>
+            <td id="nameUserid_20">Челышев Дмитрий Александрович</td>
+            <td id="passwordid_20">Dmitriy</td>
+            <td class="poz_center ">нет</td>
+            <td class="poz_center ">нет</td>
+
+    <td class="setting_td" id="edit_user_id_20">
+      <button class="setting_but" onclick="edit_user(edit_user_id_20)">
+        <img class="setting_img" src="image/setting.jpg" alt="изменить" style="vertical-align:middle height="20px""> 
+      </button></td>
+<!--
+    <td class="poz_center setting" id="edit_user_id_20">
+      <img src="image/setting.jpg" alt="изменить" height="20px" color="green">
+    </td>
+-->
+    </tr><tr>
+            <th>22</th>
+            <td id="nameUserid_22">Иванов Иван Иванович</td>
+            <td id="passwordid_22">ivanov</td>
+            <td class="poz_center ">нет</td>
+            <td class="poz_center ">нет</td>
+
+    <td class="setting_td" id="edit_user_id_22">
+      <button class="setting_but" onclick="edit_user(edit_user_id_22)">
+        <img class="setting_img" src="image/setting.jpg" alt="изменить" style="vertical-align:middle height="20px""> 
+      </button></td>
+<!--
+    <td class="poz_center setting" id="edit_user_id_22">
+      <img src="image/setting.jpg" alt="изменить" height="20px" color="green">
+    </td>
+-->
+    </tr><tr>
+            <th>23</th>
+            <td id="nameUserid_23">Иванов Иван Иванович</td>
+            <td id="passwordid_23">Ivan</td>
+            <td class="poz_center ">нет</td>
+            <td class="poz_center check_true">да</td>
+
+    <td class="setting_td" id="edit_user_id_23">
+      <button class="setting_but" onclick="edit_user(edit_user_id_23)">
+        <img class="setting_img" src="image/setting.jpg" alt="изменить" style="vertical-align:middle height="20px""> 
+      </button></td>
+<!--
+    <td class="poz_center setting" id="edit_user_id_23">
+      <img src="image/setting.jpg" alt="изменить" height="20px" color="green">
+    </td>
+-->
+    </tr><tr>
+            <th>24</th>
+            <td id="nameUserid_24">Тест Юзер Иванович</td>
+            <td id="passwordid_24">Login</td>
+            <td class="poz_center check_true">да</td>
+            <td class="poz_center ">нет</td>
+
+    <td class="setting_td" id="edit_user_id_24">
+      <button class="setting_but" onclick="edit_user(edit_user_id_24)">
+        <img class="setting_img" src="image/setting.jpg" alt="изменить" style="vertical-align:middle height="20px""> 
+      </button></td>
+<!--
+    <td class="poz_center setting" id="edit_user_id_24">
+      <img src="image/setting.jpg" alt="изменить" height="20px" color="green">
+    </td>
+-->
+    </tr></tbody></table></div><br><br><div class="table_shop">
+        <table>
+          <thead>
+            <tr><th colspan="5">Магазины</th></tr>
+            <tr>
+              <th>id</th>
+              <th>Название</th>
+              <th>адрес</th>
+              <th>телефон</th>
+              <th>e-mail</th>
+            </tr>
+          </thead>
+          <tbody>
+  <tr><th>1</th><td id="nameShopid_1">Жилгородок</td><td id="adresShopid_1">г. Балашиха, мкр. Ольгино, ул. Жилгородок, д. 44А</td>
+    <th>+79013874307</th><td>cpft.olgino2@yandex.ru</td></tr><tr><th>2</th><td id="nameShopid_2">Павлино</td><td id="adresShopid_2">г. Балашиха, мкр. Павлино, д. 15А</td>
+    <th>+79771694525</th><td>cpft.pavlino@yandex.ru</td></tr><tr><th>3</th><td id="nameShopid_3">Граничная</td><td id="adresShopid_3">г. Балашиха, мкр. Ольгино, ул. Граничная, д. 18</td>
+    <th>+7 901 424 73 04</th><td>cpft.olgino@yandex.ru</td></tr><tr><th>4</th><td id="nameShopid_4">Саввино</td><td id="adresShopid_4">г.Балашиха, мкр. Саввино, ул.Саввинская д. 5А</td>
+    <th>+79771484638</th><td>cpft.savvino@yandex.ru</td></tr><tr><th>5</th><td id="nameShopid_5">Купавна</td><td id="adresShopid_5">Балашиха, мкр. Купавна, ул. Адмирала Нахимова, д. 13</td>
+    <th>+7 991 226 53 23</th><td>cpft.kupavna@yandex.ru</td></tr></tbody></table></div><br><h3>Укажите с какой по какую дату вывести записи.</h3>
+  <form action="" method="post">
+    <div class="date">
+      <label for="report_date_start">дата, "начиная с" (включительно) </label>
+      <input type="date" value="2020-08-13" name="report_date_start" id="report_date_start">
+
+      <label for="report_date_end">, "по дату" (включительно) </label>
+      <input type="date" value="2020-08-16" name="report_date_end" id="report_date_end">
+
+      <input type="submit" value="обновить">
+    </div>
+  </form>
+  <br>
+  Записи с 2020-08-13 00:00:00 до 2020-08-17 00:00:00<br><br>
+    <div class="table_shop">
+      <table><thead>
       <tr>
-        <th colspan="3">Магазины</th>
+        <th colspan=6>Жилгородок. - г. Балашиха, мкр. Ольгино, ул. Жилгородок, д. 44А. +79013874307. e-mail: cpft.olgino2@yandex.ru</th>
       </tr>
       <tr>
+        <th>№</th>
         <th>id</th>
-        <th>Название</th>
-        <th>адрес</th>
+        <th>Время</th>
+        <th>Магазин</th>
+        <th>Пользователь</th>
+        <th>Сумма</th>
       </tr>
     </thead>
-    <tbody>
-      
+    <tbody><tr>
+                <th>1</th>
+                <th>47</th>
+                <th>2020-08-13 11:05:41</th>
+                <td>Жилгородок</td>
+                <td>Алдошина Олеся Юрьевна</td>
+                <td class="poz_r">1364.50</td>
+                </tr><tr>
+                <th>2</th>
+                <th>51</th>
+                <th>2020-08-13 19:30:27</th>
+                <td>Жилгородок</td>
+                <td>Алдошина Олеся Юрьевна</td>
+                <td class="poz_r">1843.00</td>
+                </tr><tr>
+                <th>3</th>
+                <th>56</th>
+                <th>2020-08-14 09:14:41</th>
+                <td>Жилгородок</td>
+                <td>Алдошина Олеся Юрьевна</td>
+                <td class="poz_r">1843.00</td>
+                </tr></tbody></table></div><br>
+    <div class="table_shop">
+      <table><thead>
       <tr>
-        <td>1</td>
-        <td><input type="text" value="Павлино"></td>
-        <td>Павлино 27</td>
+        <th colspan=6>Павлино. - г. Балашиха, мкр. Павлино, д. 15А. +79771694525. e-mail: cpft.pavlino@yandex.ru</th>
       </tr>
       <tr>
-        <td>2</td>
-        <td><input type="text" value="Савино"></td>
-        <td>Савино 6</td>
+        <th>№</th>
+        <th>id</th>
+        <th>Время</th>
+        <th>Магазин</th>
+        <th>Пользователь</th>
+        <th>Сумма</th>
+      </tr>
+    </thead>
+    <tbody><tr>
+                <th>1</th>
+                <th>52</th>
+                <th>2020-08-13 19:33:21</th>
+                <td>Павлино</td>
+                <td>Маркова Ирина Олеговна</td>
+                <td class="poz_r">7381.50</td>
+                </tr><tr>
+                <th>2</th>
+                <th>53</th>
+                <th>2020-08-14 09:07:31</th>
+                <td>Павлино</td>
+                <td>Маркова Ирина Олеговна</td>
+                <td class="poz_r">7381.50</td>
+                </tr><tr>
+                <th>3</th>
+                <th>61</th>
+                <th>2020-08-14 19:42:53</th>
+                <td>Павлино</td>
+                <td>Маркова Ирина Олеговна</td>
+                <td class="poz_r">10591.00</td>
+                </tr></tbody></table></div><br>
+    <div class="table_shop">
+      <table><thead>
+      <tr>
+        <th colspan=6>Граничная. - г. Балашиха, мкр. Ольгино, ул. Граничная, д. 18. +7 901 424 73 04. e-mail: cpft.olgino@yandex.ru</th>
       </tr>
       <tr>
-        <td>3</td>
-        <td><input type="text" value="Юниор"></td>
-        <td>Советская 15</td>
+        <th>№</th>
+        <th>id</th>
+        <th>Время</th>
+        <th>Магазин</th>
+        <th>Пользователь</th>
+        <th>Сумма</th>
       </tr>
-    </tbody>
-  </table>
-  <form action="write_shop.php" method="post">
-    <label>Введите id магазина <input type="number"></label>
-  </form>
-
-  <br><br>
-  <div class="table_shop">
-    <form action="" method="post">
-      <table>
-        <thead>
-          <tr>
-            <th colspan="4">Магазины</th>
-          </tr>
-          <tr>
-            <th>id</th>
-            <th>Название</th>
-            <th>адрес</th>
-            <th>изменить строку</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th>1</th>
-            <td>Павлино</td>
-            <td>улица Павлино 25</td>
-            <th><input type="button" value="изменить"></th>
-          </tr>
-          <tr>
-            <th>2</th>
-            <td>Савино</td>
-            <td>улица Савино 27</td>
-            <th><input type="button" value="изменить"></th>
-          </tr>
-        </tbody>
-      </table>
-    </form>
-  </div>
-  -->
-  <table>
-    <thead> .... </thead>
-    <tfoot> ... </tfoot>
-    <tbody>
+    </thead>
+    <tbody><tr>
+                <th>1</th>
+                <th>44</th>
+                <th>2020-08-13 09:46:08</th>
+                <td>Граничная</td>
+                <td>Прохоренкова Елизавета Игоревна</td>
+                <td class="poz_r">3540.00</td>
+                </tr><tr>
+                <th>2</th>
+                <th>62</th>
+                <th>2020-08-14 19:56:21</th>
+                <td>Граничная</td>
+                <td>Прохоренкова Елизавета Игоревна</td>
+                <td class="poz_r">4722.00</td>
+                </tr><tr>
+                <th>3</th>
+                <th>63</th>
+                <th>2020-08-15 09:57:48</th>
+                <td>Граничная</td>
+                <td>Челышев Дмитрий Александрович</td>
+                <td class="poz_r">2000.00</td>
+                </tr><tr>
+                <th>4</th>
+                <th>64</th>
+                <th>2020-08-15 10:01:09</th>
+                <td>Граничная</td>
+                <td>Челышев Дмитрий Александрович</td>
+                <td class="poz_r">4722.00</td>
+                </tr></tbody></table></div><br>
+    <div class="table_shop">
+      <table><thead>
       <tr>
-        <td> ... </td>
+        <th colspan=6>Саввино. - г.Балашиха, мкр. Саввино, ул.Саввинская д. 5А. +79771484638. e-mail: cpft.savvino@yandex.ru</th>
       </tr>
-    </tbody>
-  </table>
-
-  <table>
-    <thead> .... </thead>
-    <tbody>
       <tr>
-        <td> ... </td>
+        <th>№</th>
+        <th>id</th>
+        <th>Время</th>
+        <th>Магазин</th>
+        <th>Пользователь</th>
+        <th>Сумма</th>
       </tr>
-    </tbody>
-  </table>
-
-
-
-  <p><a href="vendor/logout.php" class="logout">Выход</a></p>
-  <p>Пользователь: Test.</p><a href="profile.php">user page</a><br><br>
-  <div class="table_shop">
-    <table>
-      <thead>
-        <tr>
-          <th colspan="5">Магазины</th>
-        </tr>
-        <tr>
-          <th>id</th>
-          <th>Название</th>
-          <th>адрес</th>
-          <th>телефон</th>
-          <th>e-mail</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th>1</th>
-          <td id="nameShopid_1">Жилгородок</td>
-          <td id="adresShopid_1">г. Балашиха, мкр. Ольгино, ул. Жилгородок, д. 44А</td>
-          <th>+79013874307</th>
-          <td>cpft.olgino2@yandex.ru</td>
-        </tr>
-        <!-- <tr>
-  <th>id</th><th>time</th><th>user</th><th>summa</th>
-</tr> -->
-
-        <tr>
-          <th>2</th>
-          <td id="nameShopid_2">Павлино</td>
-          <td id="adresShopid_2">г. Балашиха, мкр. Павлино, д. 15А</td>
-          <th>+79771694525</th>
-          <td>cpft.pavlino@yandex.ru</td>
-        </tr>
-        <tr>
-          <th>3</th>
-          <td id="nameShopid_3">Граничная</td>
-          <td id="adresShopid_3">г. Балашиха, мкр. Ольгино, ул. Граничная, д. 18</td>
-          <th>+7 901 424 73 04</th>
-          <td>cpft.olgino@yandex.ru</td>
-        </tr>
-        <tr>
-          <th>4</th>
-          <td id="nameShopid_4">Саввино</td>
-          <td id="adresShopid_4">г.Балашиха, мкр. Саввино, ул.Саввинская д. 5А</td>
-          <th>+79771484638</th>
-          <td>cpft.savvino@yandex.ru</td>
-        </tr>
-        <tr>
-          <th>5</th>
-          <td id="nameShopid_5">Купавна</td>
-          <td id="adresShopid_5">Балашиха, мкр. Купавна, ул. Адмирала Нахимова, д. 13</td>
-          <th>+7 991 226 53 23</th>
-          <td>cpft.kupavna@yandex.ru</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+    </thead>
+    <tbody><tr>
+                <th>1</th>
+                <th>45</th>
+                <th>2020-08-13 10:07:54</th>
+                <td>Саввино</td>
+                <td>Орлов Артем Сергеевич</td>
+                <td class="poz_r">3000.00</td>
+                </tr><tr>
+                <th>2</th>
+                <th>46</th>
+                <th>2020-08-13 10:09:08</th>
+                <td>Саввино</td>
+                <td>Орлов Артем Сергеевич</td>
+                <td class="poz_r">4017.00</td>
+                </tr><tr>
+                <th>3</th>
+                <th>50</th>
+                <th>2020-08-13 19:29:33</th>
+                <td>Саввино</td>
+                <td>Орлов Артем Сергеевич</td>
+                <td class="poz_r">4247.00</td>
+                </tr><tr>
+                <th>4</th>
+                <th>54</th>
+                <th>2020-08-14 09:11:39</th>
+                <td>Саввино</td>
+                <td>Орлов Артем Сергеевич</td>
+                <td class="poz_r">3000.00</td>
+                </tr><tr>
+                <th>5</th>
+                <th>55</th>
+                <th>2020-08-14 09:12:13</th>
+                <td>Саввино</td>
+                <td>Орлов Артем Сергеевич</td>
+                <td class="poz_r">4247.00</td>
+                </tr><tr>
+                <th>6</th>
+                <th>59</th>
+                <th>2020-08-14 19:30:36</th>
+                <td>Саввино</td>
+                <td>Орлов Артем Сергеевич</td>
+                <td class="poz_r">4607.00</td>
+                </tr><tr>
+                <th>7</th>
+                <th>60</th>
+                <th>2020-08-14 19:31:07</th>
+                <td>Саввино</td>
+                <td>Орлов Артем Сергеевич</td>
+                <td class="poz_r">4607.00</td>
+                </tr><tr>
+                <th>8</th>
+                <th>65</th>
+                <th>2020-08-15 10:10:28</th>
+                <td>Саввино</td>
+                <td>Орлов Артем Сергеевич</td>
+                <td class="poz_r">4607.00</td>
+                </tr></tbody></table></div><br>
+    <div class="table_shop">
+      <table><thead>
+      <tr>
+        <th colspan=6>Купавна. - Балашиха, мкр. Купавна, ул. Адмирала Нахимова, д. 13. +7 991 226 53 23. e-mail: cpft.kupavna@yandex.ru</th>
+      </tr>
+      <tr>
+        <th>№</th>
+        <th>id</th>
+        <th>Время</th>
+        <th>Магазин</th>
+        <th>Пользователь</th>
+        <th>Сумма</th>
+      </tr>
+    </thead>
+    <tbody><tr>
+                <th>1</th>
+                <th>48</th>
+                <th>2020-08-13 13:14:01</th>
+                <td>Купавна</td>
+                <td>Мумина Екатерина Олеговна</td>
+                <td class="poz_r">3910.00</td>
+                </tr><tr>
+                <th>2</th>
+                <th>49</th>
+                <th>2020-08-13 19:29:18</th>
+                <td>Купавна</td>
+                <td>Мумина Екатерина Олеговна</td>
+                <td class="poz_r">3920.00</td>
+                </tr><tr>
+                <th>3</th>
+                <th>57</th>
+                <th>2020-08-14 11:14:32</th>
+                <td>Купавна</td>
+                <td>Мумина Екатерина Олеговна</td>
+                <td class="poz_r">3920.00</td>
+                </tr><tr>
+                <th>4</th>
+                <th>58</th>
+                <th>2020-08-14 19:28:35</th>
+                <td>Купавна</td>
+                <td>Мумина Екатерина Олеговна</td>
+                <td class="poz_r">4090.00</td>
+                </tr><tr>
+                <th>5</th>
+                <th>66</th>
+                <th>2020-08-15 21:27:57</th>
+                <td>Купавна</td>
+                <td>Валиков Артем Борисович</td>
+                <td class="poz_r">501.07</td>
+                </tr></tbody></table></div>
+<!-- <pre> -->
+<!-- </pre> -->  <!-- Административная часть -->
+  <script src="admin.js"></script>
 </body>
 
 </html>
