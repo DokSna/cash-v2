@@ -2,14 +2,11 @@
 session_start();
 if (!$_SESSION['user']) {
   header('Location: /');
-} 
-elseif ($_SESSION['user']['employee'] != true) {
+} elseif ($_SESSION['user']['employee'] != true) {
   header('Location: stranger.php');
-} 
-elseif ($_SESSION['user']['admin'] != true) {
+} elseif ($_SESSION['user']['admin'] != true) {
   header('Location: profile.php');
-} 
-else {
+} else {
   require_once('connect.php');
 
   # поскольку это обычный запрос без placeholder’ов,
@@ -21,19 +18,20 @@ else {
 
   # выводим таблицу на экран
   echo '<div class="table_shop">
-        <table>
-          <thead>
-            <tr><th colspan="6">Сотрудники</th></tr>
-            <tr>
-              <th>id</th>
-              <th>ФИО</th>
-              <th>Логин</th>
-              <th>сотрудник</th>
-              <th>админ</th>
-              <th>изменить</th>
-            </tr>
-          </thead>
-          <tbody>
+          <form action="vendor/edit-row.php" method="post">
+            <table>
+              <thead>
+                <tr><th colspan="6">Сотрудники</th></tr>
+                <tr>
+                  <th>id</th>
+                  <th>ФИО</th>
+                  <th>Логин</th>
+                  <th>сотрудник</th>
+                  <th>админ</th>
+                  <th>изменить</th>
+                </tr>
+              </thead>
+              <tbody>
   ';
   # выводим строки таблицы
   while ($row_user = $sql_users->fetch()) {
@@ -59,7 +57,7 @@ else {
     echo '
 
     <td class="setting_td" id="edit_user_id_' . $row_user['id_user'] . '">
-      <button id="edit_user_but_' . $row_user['id_user'] . '" class="setting_but" onclick="edit_user(' . $row_user['id_user'] . ')">
+      <button type="button" id="edit_user_but_' . $row_user['id_user'] . '" class="setting_but" onclick="edit_user(' . $row_user['id_user'] . ')">
         <img class="setting_img" src="image/setting.jpg" alt="изменить" style="vertical-align:middle height="20px""> 
       </button></td>
 <!--
@@ -73,7 +71,7 @@ else {
     # onclick="choice()" - снимает блокировку с кнопки отправки формы, когда выбран магазин
   }
   # пишем "хвост" таблицы
-  echo '</tbody></table></div>';
+  echo '</tbody></table></form></div>';
   if ($_SESSION['message_shop']) {
     echo '<p class="msg_shop"> ' . $_SESSION['message_shop'] . ' </p>';
     unset($_SESSION['message_shop']);
