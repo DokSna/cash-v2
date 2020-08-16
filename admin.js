@@ -34,27 +34,29 @@ function edit_user(userid) {
     let edit_user_login = '<input type="text" name="login" placeholder="Введите логин" required pattern="[A-Za-z0-9]{3,30}" title="Используйте только латинские буквы (A-Z, a-z) и цифры (0-9). Длина от 3-х до 30-ти символов." value="' + source_user_login + '">';
     user_login.innerHTML = edit_user_login;
 
-    // Edit employee
+    // Edit access_level
     let source_user_employee = user_employee.innerHTML;
     let edit_user_employee
-    if (source_user_employee == "да") {
-      edit_user_employee = '<select name="user_employee"><option value="no">нет</option><option value="yes" selected>да</option></select>';
+    if (source_user_employee == "админ") {
+      edit_user_employee = '<select name="user_employee"><option value=0>нет</option><option value=1>сотрудник</option><option value=2 selected>админ</option></select>';
     }
-    else {
-      edit_user_employee = '<select name="user_employee"><option value="no" selected>нет</option><option value="yes">да</option></select>';
+    else if (source_user_employee == "сотрудник") {
+      edit_user_employee = '<select name="user_employee"><option value=0>нет</option><option value=1 selected>сотрудник</option><option value=2>админ</option></select>';
+    } else {
+      edit_user_employee = '<select name="user_employee"><option value=0 selected>нет</option><option value=1>сотрудник</option><option value=2>админ</option></select>';
     }
     user_employee.innerHTML = edit_user_employee;
 
-    // Edit Admin
-    let source_user_admin = user_admin.innerHTML;
-    let edit_user_admin
-    if (source_user_admin == "да") {
-      edit_user_admin = '<select name="user_employee"><option value="no">нет</option><option value="yes" selected>да</option></select>';
-    }
-    else {
-      edit_user_admin = '<select name="user_employee"><option value="no" selected>нет</option><option value="yes">да</option></select>';
-    }
-    user_admin.innerHTML = edit_user_admin;
+    // // Edit Admin
+    // let source_user_admin = user_admin.innerHTML;
+    // let edit_user_admin
+    // if (source_user_admin == "да") {
+    //   edit_user_admin = '<select name="user_employee"><option value="no">нет</option><option value="yes" selected>да</option></select>';
+    // }
+    // else {
+    //   edit_user_admin = '<select name="user_employee"><option value="no" selected>нет</option><option value="yes">да</option></select>';
+    // }
+    // user_admin.innerHTML = edit_user_admin;
 
     // получаем строку и обёртываем всё содержимое в форму
     // let row_user = user_id.parentElement;

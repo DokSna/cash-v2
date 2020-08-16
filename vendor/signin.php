@@ -64,13 +64,10 @@ else {
       "id"        => $user['id_user'],
       "full_name" => $user['full_name'],
       "login"     => $user['login'],
-      "employee"  => $user['employee'],   //сотрудник или чужак
-      "admin"     => $user['admin']       //админ или нет
-      // "report_date_start" => $user['report_date_start'],
-      // "report_date_end" => $user['report_date_end']
+      "access_level"  => $user['access_level']  //0 - чужак, 1 - сотрудник, 2 - администратор
     ];
 
-    if ($_SESSION['user']['employee'] == 1) {
+    if ($_SESSION['user']['access_level'] > 0) {
       header('Location: ../profile.php');
     }
     else {

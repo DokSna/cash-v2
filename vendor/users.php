@@ -2,9 +2,9 @@
 session_start();
 if (!$_SESSION['user']) {
   header('Location: /');
-} elseif ($_SESSION['user']['employee'] != true) {
+} elseif ($_SESSION['user']['access_level'] < 1) {
   header('Location: stranger.php');
-} elseif ($_SESSION['user']['admin'] != true) {
+} elseif ($_SESSION['user']['access_level'] < 2) {
   header('Location: profile.php');
 } else {
   require_once('connect.php');
@@ -21,13 +21,12 @@ if (!$_SESSION['user']) {
           <form action="vendor/edit-row.php" method="post">
             <table>
               <thead>
-                <tr><th colspan="6">Сотрудники</th></tr>
+                <tr><th colspan="5">Сотрудники</th></tr>
                 <tr>
                   <th>id</th>
                   <th>ФИО</th>
                   <th>Логин</th>
-                  <th>сотрудник</th>
-                  <th>админ</th>
+                  <th>доступ</th>
                   <th>изменить</th>
                 </tr>
               </thead>
@@ -40,19 +39,17 @@ if (!$_SESSION['user']) {
             <td id="user_full_name_' . $row_user['id_user'] . '">' . $row_user['full_name'] . '</td>
             <td id="user_login_' . $row_user['id_user'] . '">' . $row_user['login'] . '</td>
             <td id="user_employee_' . $row_user['id_user'] . '" class="poz_center ';
-    if ($row_user['employee']) {
-      echo ('check_true">да');
-    } else {
-      echo ('">нет');
+    if ($row_user['access_level'] == 1) {
+      echo ('check_true">сотрудник');
     }
-    echo '</td>
-            <td id="user_admin_' . $row_user['id_user'] . '" class="poz_center ';
-    if ($row_user['admin']) {
-      echo ('check_true">да');
-    } else {
+    elseif ($row_user['access_level'] == 2) {
+      echo ('check_true_admin">админ');
+    }
+    else {
       echo ('">нет');
     }
     echo '</td>';
+
 
     echo '
 

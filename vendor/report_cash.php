@@ -3,7 +3,7 @@ session_start();
 if (!$_SESSION['user']) {
   header('Location: /');
 }
-if ($_SESSION['user']['admin'] != true) {
+if ($_SESSION['user']['access_level'] < 2) {
   header('Location: profile.php');
 } else {
   require_once('connect.php');

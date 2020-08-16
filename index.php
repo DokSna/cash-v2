@@ -1,10 +1,10 @@
 <?php
 session_start();
 
-if ($_SESSION['user'] && $_SESSION['user']['employee']) {
+if ($_SESSION['user'] && ($_SESSION['user']['access_level'] > 0)) {
   header('Location: profile.php');
 }
-if ($_SESSION['user'] && !$_SESSION['user']['employee']) {
+if ($_SESSION['user'] && !$_SESSION['user']['access_level'] < 1) {
   header('Location: stranger.php');
 }
 

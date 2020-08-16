@@ -41,7 +41,9 @@
 .check_true {
   background-color: rgba(0, 128, 0, 0.3);
 }
-
+.check_true_admin {
+  background-color: rgba(0, 13, 128, 0.3);
+}
 /* редактирование записей */
 /* .setting {
   margin: 2px;
