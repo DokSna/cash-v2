@@ -59,7 +59,7 @@ else {
     echo '
 
     <td class="setting_td" id="edit_user_id_' . $row_user['id_user'] . '">
-      <button class="setting_but" onclick="edit_user(' . $row_user['id_user'] . ')">
+      <button id="edit_user_but_' . $row_user['id_user'] . '" class="setting_but" onclick="edit_user(' . $row_user['id_user'] . ')">
         <img class="setting_img" src="image/setting.jpg" alt="изменить" style="vertical-align:middle height="20px""> 
       </button></td>
 <!--
