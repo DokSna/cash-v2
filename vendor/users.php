@@ -38,7 +38,7 @@ if (!$_SESSION['user']) {
             <th id="user_id_' . $row_user['id_user'] . '">' . $row_user['id_user'] . '</th>
             <td id="user_full_name_' . $row_user['id_user'] . '">' . $row_user['full_name'] . '</td>
             <td id="user_login_' . $row_user['id_user'] . '">' . $row_user['login'] . '</td>
-            <td id="user_employee_' . $row_user['id_user'] . '" class="poz_center ';
+            <td id="user_access_level_' . $row_user['id_user'] . '" class="poz_center ';
     if ($row_user['access_level'] == 1) {
       echo ('check_true">сотрудник');
     }

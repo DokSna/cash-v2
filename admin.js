@@ -8,18 +8,15 @@ function edit_user(userid) {
     let user_id = "user_id_" + userid;
     let user_full_name = "user_full_name_" + userid;
     let user_login = "user_login_" + userid;
-    let user_employee = "user_employee_" + userid;
-    let user_admin = "user_admin_" + userid;
+    let user_access_level = "user_access_level_" + userid;
     user_id = document.getElementById(user_id);
     user_full_name = document.getElementById(user_full_name);
     user_login = document.getElementById(user_login);
-    user_employee = document.getElementById(user_employee);
-    user_admin = document.getElementById(user_admin);
+    user_access_level = document.getElementById(user_access_level);
     console.log(user_id);
     console.log(user_full_name);
     console.log(user_login);
-    console.log(user_employee);
-    console.log(user_admin);
+    console.log(user_access_level);
 
     // меняем функцию на onclick
     // edit_user_but_
@@ -35,26 +32,36 @@ function edit_user(userid) {
     user_login.innerHTML = edit_user_login;
 
     // Edit access_level
-    let source_user_employee = user_employee.innerHTML;
-    let edit_user_employee
-    if (source_user_employee == "админ") {
-      edit_user_employee = '<select name="user_employee"><option value=0>нет</option><option value=1>сотрудник</option><option value=2 selected>админ</option></select>';
+    let source_user_access_level = user_access_level.innerHTML;
+    let edit_user_access_level
+    if (source_user_access_level == "админ") {
+      edit_user_access_level = '<select name="user_access_level"><option value=0>нет</option><option value=1>сотрудник</option><option value=2 selected>админ</option></select>';
     }
-    else if (source_user_employee == "сотрудник") {
-      edit_user_employee = '<select name="user_employee"><option value=0>нет</option><option value=1 selected>сотрудник</option><option value=2>админ</option></select>';
+    else if (source_user_access_level == "сотрудник") {
+      edit_user_access_level = '<select name="user_access_level"><option value=0>нет</option><option value=1 selected>сотрудник</option><option value=2>админ</option></select>';
     } else {
-      edit_user_employee = '<select name="user_employee"><option value=0 selected>нет</option><option value=1>сотрудник</option><option value=2>админ</option></select>';
+      edit_user_access_level = '<select name="user_access_level"><option value=0 selected>нет</option><option value=1>сотрудник</option><option value=2>админ</option></select>';
     }
-    user_employee.innerHTML = edit_user_employee;
+    user_access_level.innerHTML = edit_user_access_level;
+
+    // заблокируем кнопки на остальных строках на всех таблицах на странице
+    // let button_one = document.querySelector('.setting_but');
+    // console.log(button_one);
+    let buttons_tables = document.querySelectorAll('.setting_but');
+    for (let buttony of buttons_tables) {
+      buttony.disabled = true;
+    }
+    // buttons_tables.disabled = false;
+
 
     // // Edit Admin
     // let source_user_admin = user_admin.innerHTML;
     // let edit_user_admin
     // if (source_user_admin == "да") {
-    //   edit_user_admin = '<select name="user_employee"><option value="no">нет</option><option value="yes" selected>да</option></select>';
+    //   edit_user_admin = '<select name="user_access_level"><option value="no">нет</option><option value="yes" selected>да</option></select>';
     // }
     // else {
-    //   edit_user_admin = '<select name="user_employee"><option value="no" selected>нет</option><option value="yes">да</option></select>';
+    //   edit_user_admin = '<select name="user_access_level"><option value="no" selected>нет</option><option value="yes">да</option></select>';
     // }
     // user_admin.innerHTML = edit_user_admin;
 
