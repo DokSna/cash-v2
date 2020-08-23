@@ -18,12 +18,12 @@ if (!$_SESSION['user']) {
 
   # выводим таблицу на экран
   echo '<div class="table_shop">
-          <form action="vendor/edit-row.php" method="post">
+          <form name="users_table" action="vendor/edit-row.php" method="post">
             <table>
               <thead>
                 <tr><th colspan="5">Сотрудники</th></tr>
                 <tr>
-                  <th>id</th>
+                  <th class="column_user_id">id</th>
                   <th>ФИО</th>
                   <th>Логин</th>
                   <th>доступ</th>
@@ -51,11 +51,6 @@ if (!$_SESSION['user']) {
 
     echo '
 
-    <!--<td class="setting_td" id="edit_user_id_' . $row_user['id_user'] . '">
-      <button type="button" title="редактировать строку" id="edit_user_but_' . $row_user['id_user'] . '" class="edit_but edit_but_active" onclick="edit_user(' . $row_user['id_user'] . ')">
-        <img class="setting_img" src="image/setting.jpg" alt="изменить" style="vertical-align:middle height="20px""> 
-      </button></td>-->
-      
       <td class="setting_td" id="edit_user_id_' . $row_user['id_user'] . '">
       <div class="edit_group">
         <button type="button" title="редактировать строку" id="edit_but_active_' . $row_user['id_user'] . '" class="edit_but edit_but_active" onclick="edit_user(' . $row_user['id_user'] . ')">
@@ -69,6 +64,7 @@ if (!$_SESSION['user']) {
         </button>
         </div>
     </td>
+    <!--<td><input type="number" name="row_user_id" value="' . $row_user['id_user'] . '"></td>-->
 ';
 
     echo '</tr>';

@@ -74,3 +74,11 @@ select {
   width: 100%;
   text-align: center;
 }
+.row_user_id {
+  width: 40px;
+  box-sizing: border-box;
+  text-align: center;
+}
+.column_user_id {
+  width: 50px;
+}

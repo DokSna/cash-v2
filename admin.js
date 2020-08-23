@@ -29,6 +29,11 @@ function edit_user(userid) {
   edit_but_block_id = document.getElementById(edit_but_block_id);
   edit_but_save_id = document.getElementById(edit_but_save_id);
 
+  // добавим input с id строки
+  let source_user_id = user_id.innerHTML;
+  source_user_id = '<input class="row_user_id" type="text" readonly name="user_id" value="' + Number(source_user_id) + '">';
+  user_id.innerHTML = source_user_id;
+
   //сохраняем начальное значение что бы отобразить в инпуте
   let source_user_full_name = user_full_name.innerHTML;
   // let edit_user_full_name = '<input class="edit_line" type="text" name="full_name" placeholder="Введите свое полное имя" required pattern="[А-ЯЁ][а-яё]{1,32}\s[А-ЯЁ][а-яё]{1,32}\s[А-ЯЁ][а-яё]{1,32}$" title="Введите Фамилию Имя и Отчество (через пробелы c Заглавной буквы, 6-98 русских символов)." value="' + source_user_full_name + '">';
