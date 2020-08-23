@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Cash - Валиков Артем Борисович</title>
+  <link rel="stylesheet" href="../style/profile.css">
+  <link rel="stylesheet" href="../style/userpanel.css">
+  <link rel="stylesheet" href="../style/adminlk.css">
+</head>
+
+<body>
+
+  <!-- Профиль -->
+  <div class="userpanel">
+
+    <div class="userpanel_logout">
+      <a href="vendor/logout.php" class="logout">Выход</a>
+    </div>
+
+    <div class="userpanel_user-name">
+      <p>пользователь: Валиков Артем Борисович.</p>
+    </div>
+
+    <div class="userpanel_user-admin">
+      <a href="profile.php">user page</a>
+    </div>
+
+  </div>
+  <div class="table_shop">
+    <form action="vendor/edit-row.php" method="post">
+      <table>
+        <thead>
+          <tr>
+            <th colspan="5">Сотрудники</th>
+          </tr>
+          <tr>
+            <th>id</th>
+            <th>ФИО</th>
+            <th>Логин</th>
+            <th>доступ</th>
+            <th>изменить</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th id="user_id_6">6</th>
+            <td id="user_full_name_6">Валиков Артем Борисович</td>
+            <td id="user_login_6">Artem</td>
+            <td id="user_access_level_6" class="poz_center check_true_admin">админ</td>
+
+            <td class="setting_td" id="edit_user_id_6">
+              <div class="edit_group">
+                <button type="button" title="редактировать строку" id="edit_user_but_6"
+                  class="setting_but setting_but_shadow" onclick="edit_user(6)">
+                  <img class="setting_img setting_img_open" src="../image/setting.jpg" alt="изменить">
+                </button>
+                <button type="button" title="кнопка заблокирована" id="edit_user_but_6"
+                  class="setting_but setting_but_block_shadow el_hide" disabled>
+                  <img class="setting_img" src="../image/setting.jpg" alt="кнопка заблокирована">
+                </button>
+                <button type="button" title="сохранить строку" id="edit_user_but_6"
+                  class="setting_but setting_but_shadow el_hide" onclick="edit_user_save(6)">
+                  <img class="setting_img setting_img_save" src="../image/disketa-x30.png" alt="сохранить строку">
+                </button>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th id="user_id_8">8</th>
+            <td id="user_full_name_8">Дербикова Анастасия Валерьевна</td>
+            <td id="user_login_8">derbikova</td>
+            <td id="user_access_level_8" class="poz_center check_true_admin">админ</td>
+
+            <td class="setting_td" id="edit_user_id_6">
+              <button type="button" title="редактировать строку" id="edit_user_but_6"
+                class="setting_but setting_but_shadow" onclick="edit_user(6)">
+                <img class="setting_img" src="../image/setting.jpg" alt="изменить"
+                  style="vertical-align:middle height='20px'">
+              </button></td>
+          </tr>
+          <tr>
+            <th id="user_id_10">10</th>
+            <td id="user_full_name_10">Иванов Петр Сергеевич</td>
+            <td id="user_login_10">infoehra</td>
+            <td id="user_access_level_10" class="poz_center check_true">сотрудник</td>
+
+            <td class="setting_td" id="edit_user_id_6">
+              <button type="button" title="редактировать строку" id="edit_user_but_6"
+                class="setting_but setting_but_shadow" onclick="edit_user(6)">
+                <img class="setting_img" src="../image/setting.jpg" alt="изменить"
+                  style="vertical-align:middle height='20px'">
+              </button></td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+  </div><br><br>
+  <script src="admin.js"></script>
+</body>
+
+</html>

@@ -41,11 +41,9 @@ if (!$_SESSION['user']) {
             <td id="user_access_level_' . $row_user['id_user'] . '" class="poz_center ';
     if ($row_user['access_level'] == 1) {
       echo ('check_true">сотрудник');
-    }
-    elseif ($row_user['access_level'] == 2) {
+    } elseif ($row_user['access_level'] == 2) {
       echo ('check_true_admin">админ');
-    }
-    else {
+    } else {
       echo ('">нет');
     }
     echo '</td>';
@@ -53,16 +51,25 @@ if (!$_SESSION['user']) {
 
     echo '
 
-    <td class="setting_td" id="edit_user_id_' . $row_user['id_user'] . '">
-      <button type="button" id="edit_user_but_' . $row_user['id_user'] . '" class="setting_but" onclick="edit_user(' . $row_user['id_user'] . ')">
+    <!--<td class="setting_td" id="edit_user_id_' . $row_user['id_user'] . '">
+      <button type="button" title="редактировать строку" id="edit_user_but_' . $row_user['id_user'] . '" class="edit_but edit_but_active" onclick="edit_user(' . $row_user['id_user'] . ')">
         <img class="setting_img" src="image/setting.jpg" alt="изменить" style="vertical-align:middle height="20px""> 
-      </button></td>
-<!--
-    <td class="poz_center setting" id="edit_user_id_' . $row_user['id_user'] . '">
-      <img src="image/setting.jpg" alt="изменить" height="20px" color="green">
+      </button></td>-->
+      
+      <td class="setting_td" id="edit_user_id_' . $row_user['id_user'] . '">
+      <div class="edit_group">
+        <button type="button" title="редактировать строку" id="edit_but_active_' . $row_user['id_user'] . '" class="edit_but edit_but_active" onclick="edit_user(' . $row_user['id_user'] . ')">
+          <img class="setting_img setting_img_open" src="image/setting.jpg" alt="изменить">
+        </button>
+        <button type="button" title="кнопка заблокирована" id="edit_but_block_' . $row_user['id_user'] . '" class="edit_but edit_but_block el_hide" disabled>
+          <!--<img class="setting_img" src="image/setting.jpg" alt="кнопка заблокирована">-->
+        </button>
+        <button type="submit" title="сохранить строку" id="edit_but_save_' . $row_user['id_user'] . '" class="edit_but edit_but_save el_hide" onclick="edit_user_save(' . $row_user['id_user'] . ')">
+          <img class="setting_img setting_img_save" src="../image/disketa-x30.png" alt="сохранить строку">
+        </button>
+        </div>
     </td>
--->
-    ';
+';
 
     echo '</tr>';
     # onclick="choice()" - снимает блокировку с кнопки отправки формы, когда выбран магазин
