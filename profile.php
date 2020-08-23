@@ -172,6 +172,12 @@ if ($_SESSION['user']['access_level'] == 0) {
     </div>
 
   </form>
+  <?php
+  # Записи в таблице Cash
+  echo '<br>';
+  include('./vendor/report_cash.php');
+  ?>
+
   <script src="calc.js"></script>
 </body>
 
