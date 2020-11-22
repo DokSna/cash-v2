@@ -28,193 +28,545 @@
     </div>
   </div>
   <!-- наличность -->
-  <form action="vendor/sendm.php" method="post">
-    <!-- выбрать магазин -->
-    <div class="table_shop">
-      <table>
-        <thead>
-          <tr>
-            <th colspan="6">Магазины</th>
-          </tr>
-          <tr>
-            <th></th>
-            <th>id</th>
-            <th>Название</th>
-            <th>адрес</th>
-            <th>телефон</th>
-            <th>e-mail</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th><label for="selShop_1"><input type="radio" name="id_shop" value="1" id="selShop_1"></label></th>
-            <th><label for="selShop_1">1</label></th>
-            <td id="nameShopid_1"><label for="selShop_1">Жилгородок</label></td>
-            <td id="adresShopid_1"><label for="selShop_1">г. Балашиха, мкр. Ольгино, ул. Жилгородок, д. 44А</label></td>
-            <th><label for="selShop_1">+79013874307</label></th>
-            <td><label for="selShop_1">cpft.olgino2@yandex.ru</label></td>
-          </tr>
-          <tr>
-            <th><label for="selShop_2"><input type="radio" name="id_shop" value="2" id="selShop_2"></label></th>
-            <th><label for="selShop_2">2</label></th>
-            <td id="nameShopid_2"><label for="selShop_2">Павлино</label></td>
-            <td id="adresShopid_2"><label for="selShop_2">г. Балашиха, мкр. Павлино, д. 15А</label></td>
-            <th><label for="selShop_2">+79771694525</label></th>
-            <td><label for="selShop_2">cpft.pavlino@yandex.ru</label></td>
-          </tr>
-          <tr>
-            <th><label for="selShop_3"><input type="radio" name="id_shop" value="3" id="selShop_3"></label></th>
-            <th><label for="selShop_3">3</label></th>
-            <td id="nameShopid_3"><label for="selShop_3">Граничная</label></td>
-            <td id="adresShopid_3"><label for="selShop_3">г. Балашиха, мкр. Ольгино, ул. Граничная, д. 18</label></td>
-            <th><label for="selShop_3">+7 901 424 73 04</label></th>
-            <td><label for="selShop_3">cpft.olgino@yandex.ru</label></td>
-          </tr>
-          <tr>
-            <th><label for="selShop_4"><input type="radio" name="id_shop" value="4" id="selShop_4"></label></th>
-            <th><label for="selShop_4">4</label></th>
-            <td id="nameShopid_4"><label for="selShop_4">Саввино</label></td>
-            <td id="adresShopid_4"><label for="selShop_4">г.Балашиха, мкр. Саввино, ул.Саввинская д. 5А</label></td>
-            <th><label for="selShop_4">+79771484638</label></th>
-            <td><label for="selShop_4">cpft.savvino@yandex.ru</label></td>
-          </tr>
-          <tr>
-            <th><label for="selShop_5"><input type="radio" name="id_shop" value="5" id="selShop_5"></label></th>
-            <th><label for="selShop_5">5</label></th>
-            <td id="nameShopid_5"><label for="selShop_5">Купавна</label></td>
-            <td id="adresShopid_5"><label for="selShop_5">Балашиха, мкр. Купавна, ул. Адмирала Нахимова, д. 13</label>
-            </td>
-            <th><label for="selShop_5">+7 991 226 53 23</label></th>
-            <td><label for="selShop_5">cpft.kupavna@yandex.ru</label></td>
-          </tr>
-        </tbody>
-      </table>
+  <h3>Укажите с какой по какую дату вывести записи.</h3>
+  <form action="" method="post">
+    <div class="date">
+      <label for="report_date_start">дата, "начиная с" (включительно) </label>
+      <input type="date" value="2020-08-05" name="report_date_start" id="report_date_start">
+
+      <label for="report_date_end">, "по дату" (включительно) </label>
+      <input type="date" value="2020-08-23" name="report_date_end" id="report_date_end">
+
+      <input type="submit" value="обновить">
     </div>
-    <div class="cash">
-      <div class="cash_kupur">
-        <table>
-          <thead>
-            <tr>
-              <th colspan="3">Купюры</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>5000</td>
-              <td><input type="number" value="0" min="0" id="kup5000" name="kup5000"></td>
-              <td id="ka5"></td>
-            </tr>
-            <tr>
-              <td>2000</td>
-              <td><input type="number" value="0" min="0" id="kup2000" name="kup2000"></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>1000</td>
-              <td><input type="number" value="0" min="0" id="kup1000" name="kup1000"></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>500</td>
-              <td><input type="number" value="0" min="0" id="kup500" name="kup500"></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>200</td>
-              <td><input type="number" value="0" min="0" id="kup200" name="kup200"></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>100</td>
-              <td><input type="number" value="0" min="0" id="kup100" name="kup100"></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>50</td>
-              <td><input type="number" value="0" min="0" id="kup50" name="kup50"></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>10</td>
-              <td><input type="number" value="0" min="0" id="kup10" name="kup10"></td>
-              <td></td>
-            </tr>
-          </tbody>
-        </table>
-
-      </div>
-      <div class="cash_monet">
-
-        <table>
-          <thead>
-            <tr>
-              <th colspan="3">Монеты</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>10</td>
-              <td><input type="number" value="0" min="0" id="moneta10" name="moneta10"></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>5</td>
-              <td><input type="number" value="0" min="0" id="moneta5" name="moneta5"></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td><input type="number" value="0" min="0" id="moneta2" name="moneta2"></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td><input type="number" value="0" min="0" id="moneta1" name="moneta1"></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>0.50</td>
-              <td><input type="number" value="0" min="0" id="copeyka50" name="copeyka50"></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>0.10</td>
-              <td><input type="number" value="0" min="0" id="copeyka10" name="copeyka10"></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>0.05</td>
-              <td><input type="number" value="0" min="0" id="copeyka5" name="copeyka5"></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>0.01</td>
-              <td><input type="number" value="0" min="0" id="copeyka1" name="copeyka1"></td>
-              <td></td>
-            </tr>
-          </tbody>
-        </table>
-
-      </div>
-      <div class="cash_summa">
-        <p>Сумма купюр: <span id="kupSumm">0</span></p>
-
-        <p>Сумма монет: <span id="monetSumm">0</span></p>
-
-        <p>Общая Сумма: <span name="sum" id="summa">0</span></p>
-        <!-- <p>Общая Сумма</p>
-        <input type="number" readonly value="0" name="sum" id="summa"> -->
-
-
-        <!-- <input id="submitgo" type="submit" value="Отправить" onfocus="calc()" onmouseover="calc()"> -->
-        <input id="submitgo" type="submit" value="Отправить">
-        <!-- disabled -->
-
-      </div>
-    </div>
-
   </form>
-  <script src="../calc.js" type="text/javascript"></script>
+  <br>
+  Записи с 2020-08-05 00:00:00 до 2020-08-24 00:00:00<br><br>
+  <div class="table_shop">
+    <table>
+      <thead>
+        <tr>
+          <th colspan=19>Жилгородок. - г. Балашиха, мкр. Ольгино, ул. Жилгородок, д. 44А. +79013874307. e-mail:
+            cpft.olgino2@yandex.ru</th>
+        </tr>
+        <tr>
+          <th>№</th>
+          <th>id</th>
+          <th>Время</th>
+          <th>Пользователь</th>
+          <th>Сумма</th>
+          <th>5000</th>
+          <th>2000</th>
+          <th>1000</th>
+          <th>500</th>
+          <th>200</th>
+          <th>100</th>
+          <th>50</th>
+          <th>10</th>
+          <th>10</th>
+          <th>5</th>
+          <th>2</th>
+          <th>1</th>
+          <th>0.50</th>
+          <th>0.10</th>
+  </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>1</th>
+          <th>43</th>
+          <th>2020-08-12 22:21:21</th>
+          <td>Валиков Артем Борисович</td>
+          <td class="poz_r">11692.27</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <!-- <tr>
+        </tr> -->
+        <tr>
+          <th>2</th>
+          <th>47</th>
+          <th>2020-08-13 11:05:41</th>
+          <td>Алдошина Олеся Юрьевна</td>
+          <td class="poz_r">1364.50</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>3</th>
+          <th>51</th>
+          <th>2020-08-13 19:30:27</th>
+          <td>Алдошина Олеся Юрьевна</td>
+          <td class="poz_r">1843.00</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>4</th>
+          <th>56</th>
+          <th>2020-08-14 09:14:41</th>
+          <td>Алдошина Олеся Юрьевна</td>
+          <td class="poz_r">1843.00</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>5</th>
+          <th>67</th>
+          <th>2020-08-15 18:57:55</th>
+          <td>Иванов Иван Иванович</td>
+          <td class="poz_r">2514.50</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>6</th>
+          <th>69</th>
+          <th>2020-08-16 10:16:32</th>
+          <td>Орлов Артем Сергеевич</td>
+          <td class="poz_r">2514.50</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>7</th>
+          <th>70</th>
+          <th>2020-08-16 19:00:33</th>
+          <td>Орлов Артем Сергеевич</td>
+          <td class="poz_r">3214.50</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>8</th>
+          <th>73</th>
+          <th>2020-08-17 09:23:17</th>
+          <td>Алдошина Олеся Юрьевна</td>
+          <td class="poz_r">3208.00</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </div><br>
+  <div class="table_shop">
+    <table>
+      <thead>
+        <tr>
+          <th colspan=6>Павлино. - г. Балашиха, мкр. Павлино, д. 15А. +79771694525. e-mail: cpft.pavlino@yandex.ru</th>
+        </tr>
+        <tr>
+          <th>№</th>
+          <th>id</th>
+          <th>Время</th>
+          <th>Магазин</th>
+          <th>Пользователь</th>
+          <th>Сумма</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>1</th>
+          <th>52</th>
+          <th>2020-08-13 19:33:21</th>
+          <td>Павлино</td>
+          <td>Маркова Ирина Олеговна</td>
+          <td class="poz_r">7381.50</td>
+        </tr>
+        <tr>
+          <th>2</th>
+          <th>53</th>
+          <th>2020-08-14 09:07:31</th>
+          <td>Павлино</td>
+          <td>Маркова Ирина Олеговна</td>
+          <td class="poz_r">7381.50</td>
+        </tr>
+        <tr>
+          <th>3</th>
+          <th>61</th>
+          <th>2020-08-14 19:42:53</th>
+          <td>Павлино</td>
+          <td>Маркова Ирина Олеговна</td>
+          <td class="poz_r">10591.00</td>
+        </tr>
+        <tr>
+          <th>4</th>
+          <th>68</th>
+          <th>2020-08-15 19:03:17</th>
+          <td>Павлино</td>
+          <td>Маркова Ирина Олеговна</td>
+          <td class="poz_r">4256.00</td>
+        </tr>
+        <tr>
+          <th>5</th>
+          <th>72</th>
+          <th>2020-08-17 09:15:05</th>
+          <td>Павлино</td>
+          <td>Маркова Ирина Олеговна</td>
+          <td class="poz_r">4066.00</td>
+        </tr>
+        <tr>
+          <th>6</th>
+          <th>76</th>
+          <th>2020-08-17 19:29:48</th>
+          <td>Павлино</td>
+          <td>Маркова Ирина Олеговна</td>
+          <td class="poz_r">15166.00</td>
+        </tr>
+        <tr>
+          <th>7</th>
+          <th>77</th>
+          <th>2020-08-18 19:29:14</th>
+          <td>Павлино</td>
+          <td>Маркова Ирина Олеговна</td>
+          <td class="poz_r">2940.00</td>
+        </tr>
+      </tbody>
+    </table>
+  </div><br>
+  <div class="table_shop">
+    <table>
+      <thead>
+        <tr>
+          <th colspan=6>Граничная. - г. Балашиха, мкр. Ольгино, ул. Граничная, д. 18. +7 901 424 73 04. e-mail:
+            cpft.olgino@yandex.ru</th>
+        </tr>
+        <tr>
+          <th>№</th>
+          <th>id</th>
+          <th>Время</th>
+          <th>Магазин</th>
+          <th>Пользователь</th>
+          <th>Сумма</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>1</th>
+          <th>41</th>
+          <th>2020-08-12 21:58:41</th>
+          <td>Граничная</td>
+          <td>Валиков Артем Борисович</td>
+          <td class="poz_r">0.00</td>
+        </tr>
+        <tr>
+          <th>2</th>
+          <th>42</th>
+          <th>2020-08-12 22:04:40</th>
+          <td>Граничная</td>
+          <td>Валиков Артем Борисович</td>
+          <td class="poz_r">0.00</td>
+        </tr>
+        <tr>
+          <th>3</th>
+          <th>44</th>
+          <th>2020-08-13 09:46:08</th>
+          <td>Граничная</td>
+          <td>Прохоренкова Елизавета Игоревна</td>
+          <td class="poz_r">3540.00</td>
+        </tr>
+        <tr>
+          <th>4</th>
+          <th>62</th>
+          <th>2020-08-14 19:56:21</th>
+          <td>Граничная</td>
+          <td>Прохоренкова Елизавета Игоревна</td>
+          <td class="poz_r">4722.00</td>
+        </tr>
+        <tr>
+          <th>5</th>
+          <th>63</th>
+          <th>2020-08-15 09:57:48</th>
+          <td>Граничная</td>
+          <td>Челышев Дмитрий Александрович</td>
+          <td class="poz_r">2000.00</td>
+        </tr>
+        <tr>
+          <th>6</th>
+          <th>64</th>
+          <th>2020-08-15 10:01:09</th>
+          <td>Граничная</td>
+          <td>Челышев Дмитрий Александрович</td>
+          <td class="poz_r">4722.00</td>
+        </tr>
+        <tr>
+          <th>7</th>
+          <th>78</th>
+          <th>2020-08-19 09:15:04</th>
+          <td>Граничная</td>
+          <td>Челышев Дмитрий Александрович</td>
+          <td class="poz_r">3347.00</td>
+        </tr>
+      </tbody>
+    </table>
+  </div><br>
+  <div class="table_shop">
+    <table>
+      <thead>
+        <tr>
+          <th colspan=6>Саввино. - г.Балашиха, мкр. Саввино, ул.Саввинская д. 5А. +79771484638. e-mail:
+            cpft.savvino@yandex.ru</th>
+        </tr>
+        <tr>
+          <th>№</th>
+          <th>id</th>
+          <th>Время</th>
+          <th>Магазин</th>
+          <th>Пользователь</th>
+          <th>Сумма</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>1</th>
+          <th>45</th>
+          <th>2020-08-13 10:07:54</th>
+          <td>Саввино</td>
+          <td>Орлов Артем Сергеевич</td>
+          <td class="poz_r">3000.00</td>
+        </tr>
+        <tr>
+          <th>2</th>
+          <th>46</th>
+          <th>2020-08-13 10:09:08</th>
+          <td>Саввино</td>
+          <td>Орлов Артем Сергеевич</td>
+          <td class="poz_r">4017.00</td>
+        </tr>
+        <tr>
+          <th>3</th>
+          <th>50</th>
+          <th>2020-08-13 19:29:33</th>
+          <td>Саввино</td>
+          <td>Орлов Артем Сергеевич</td>
+          <td class="poz_r">4247.00</td>
+        </tr>
+        <tr>
+          <th>4</th>
+          <th>54</th>
+          <th>2020-08-14 09:11:39</th>
+          <td>Саввино</td>
+          <td>Орлов Артем Сергеевич</td>
+          <td class="poz_r">3000.00</td>
+        </tr>
+        <tr>
+          <th>5</th>
+          <th>55</th>
+          <th>2020-08-14 09:12:13</th>
+          <td>Саввино</td>
+          <td>Орлов Артем Сергеевич</td>
+          <td class="poz_r">4247.00</td>
+        </tr>
+        <tr>
+          <th>6</th>
+          <th>59</th>
+          <th>2020-08-14 19:30:36</th>
+          <td>Саввино</td>
+          <td>Орлов Артем Сергеевич</td>
+          <td class="poz_r">4607.00</td>
+        </tr>
+        <tr>
+          <th>7</th>
+          <th>60</th>
+          <th>2020-08-14 19:31:07</th>
+          <td>Саввино</td>
+          <td>Орлов Артем Сергеевич</td>
+          <td class="poz_r">4607.00</td>
+        </tr>
+        <tr>
+          <th>8</th>
+          <th>65</th>
+          <th>2020-08-15 10:10:28</th>
+          <td>Саввино</td>
+          <td>Орлов Артем Сергеевич</td>
+          <td class="poz_r">4607.00</td>
+        </tr>
+        <tr>
+          <th>9</th>
+          <th>66</th>
+          <th>2020-08-15 18:56:55</th>
+          <td>Саввино</td>
+          <td>Орлов Артем Сергеевич</td>
+          <td class="poz_r">5227.00</td>
+        </tr>
+        <tr>
+          <th>10</th>
+          <th>71</th>
+          <th>2020-08-17 09:09:37</th>
+          <td>Саввино</td>
+          <td>Орлов Артем Сергеевич</td>
+          <td class="poz_r">3825.00</td>
+        </tr>
+        <tr>
+          <th>11</th>
+          <th>75</th>
+          <th>2020-08-17 18:41:35</th>
+          <td>Саввино</td>
+          <td>Орлов Артем Сергеевич</td>
+          <td class="poz_r">5765.00</td>
+        </tr>
+      </tbody>
+    </table>
+  </div><br>
+  <div class="table_shop">
+    <table>
+      <thead>
+        <tr>
+          <th colspan=6>Купавна. - Балашиха, мкр. Купавна, ул. Адмирала Нахимова, д. 13. +7 991 226 53 23. e-mail:
+            cpft.kupavna@yandex.ru</th>
+        </tr>
+        <tr>
+          <th>№</th>
+          <th>id</th>
+          <th>Время</th>
+          <th>Магазин</th>
+          <th>Пользователь</th>
+          <th>Сумма</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>1</th>
+          <th>48</th>
+          <th>2020-08-13 13:14:01</th>
+          <td>Купавна</td>
+          <td>Мумина Екатерина Олеговна</td>
+          <td class="poz_r">3910.00</td>
+        </tr>
+        <tr>
+          <th>2</th>
+          <th>49</th>
+          <th>2020-08-13 19:29:18</th>
+          <td>Купавна</td>
+          <td>Мумина Екатерина Олеговна</td>
+          <td class="poz_r">3920.00</td>
+        </tr>
+        <tr>
+          <th>3</th>
+          <th>57</th>
+          <th>2020-08-14 11:14:32</th>
+          <td>Купавна</td>
+          <td>Мумина Екатерина Олеговна</td>
+          <td class="poz_r">3920.00</td>
+        </tr>
+        <tr>
+          <th>4</th>
+          <th>58</th>
+          <th>2020-08-14 19:28:35</th>
+          <td>Купавна</td>
+          <td>Мумина Екатерина Олеговна</td>
+          <td class="poz_r">4090.00</td>
+        </tr>
+        <tr>
+          <th>5</th>
+          <th>74</th>
+          <th>2020-08-17 09:51:30</th>
+          <td>Купавна</td>
+          <td>Мумина Екатерина Олеговна</td>
+          <td class="poz_r">4090.00</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <!-- <pre> -->
+  <!-- </pre> -->
+  <script src="calc.js"></script>
 </body>
 
 </html>
